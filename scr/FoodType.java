@@ -1,3 +1,6 @@
 public enum FoodType {
 
+    Recipe,
+
+
 }
