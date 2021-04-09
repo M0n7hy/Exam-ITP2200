@@ -1,7 +1,7 @@
 public class Person {
 
     Food favoriteFood;
-    Food Allergies[];
+    Food allergies[];
     Diet diet;
     Float weight;
 
