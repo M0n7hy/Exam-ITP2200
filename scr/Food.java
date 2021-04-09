@@ -3,4 +3,5 @@ public class Food {
     float caloriePer100g;
     Boolean isVegan;
     FoodType type;
+
 }
