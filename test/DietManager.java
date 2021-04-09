@@ -6,6 +6,11 @@ public class DietManager {
 
     }
 
+    public void areCompatible() {
+        Person person = new Person();
+        Diet diet = new Diet();
+    }
+
     public void randomDiet() {
         Person p = new Person();
         ArrayList<Food> food = new ArrayList<>();
