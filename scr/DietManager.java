@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class DietManager {
     public static void main(String[] args) {
         System.out.println("Hello world");
-        //hallo testing
     }
 
     public void areCompatible() {
