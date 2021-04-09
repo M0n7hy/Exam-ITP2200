@@ -5,6 +5,9 @@ public class Diet {
     String purpose;
     Food allowedFood[];
     boolean isVegan;
+    String noe;
+    String å;
+    String prøve;
 
 
     public String writeDuraton(){
@@ -16,6 +19,7 @@ public class Diet {
         String Result = "";
         return Result;
     }
+
 
 
 
