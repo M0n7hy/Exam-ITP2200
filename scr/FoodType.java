@@ -1,6 +1,7 @@
 public enum FoodType {
 
-    Recipe,
+    Recipe, Protein, Carb, Fat;
+
 
 
 }
