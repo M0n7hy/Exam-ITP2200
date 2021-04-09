@@ -1,5 +1,6 @@
 public class Food {
     String name;
-    int caloriePer100g;
-
+    float caloriePer100g;
+    Boolean isVegan;
+    FoodType type;
 }
