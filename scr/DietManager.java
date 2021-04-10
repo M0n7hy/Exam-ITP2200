@@ -12,17 +12,15 @@ public class DietManager extends Diet{
     }
 
     public HypercaloricDiet randomDiet(Person person, Food food){
-
+        HypercaloricDiet hyperDiet = new HypercaloricDiet();
+        hyperDiet.daysDuration = 63;
+        hyperDiet.purpose = "Random diet";
+        hyperDiet.isVegan = true;
+        hyperDiet.maxWeightKg = 103;
+        hyperDiet.minCaloriesPerDay = 3500;
         return null;
     }
 
-
-
-    public void areCompatible() {
-        Person person = new Person();
-        Diet diet = new Diet();
-        
-    }
 
     public void randomDiet() {
         Person p = new Person();

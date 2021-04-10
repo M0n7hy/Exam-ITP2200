@@ -1,6 +1,6 @@
 public class HypercaloricDiet extends Diet{
 
-    float maxWeighKg;
+    float maxWeightKg;
     float minCaloriesPerDay;
 
 
