@@ -1,6 +1,6 @@
 public class FlexitarianDiet extends Diet {
 
-    float maxMeatGrandsPerWeek;
+    float maxMeatGramsPerWeek;
     Food preferredMeat;
 
 

@@ -21,6 +21,7 @@ public class DietManager extends Diet{
     public void areCompatible() {
         Person person = new Person();
         Diet diet = new Diet();
+        
     }
 
     public void randomDiet() {
