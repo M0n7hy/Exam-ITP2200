@@ -1,6 +1,10 @@
+package Exam2021;
+
+import Exam2021.Diet;
+
 import java.util.ArrayList;
 
-public class DietManager extends Diet{
+public class DietManager extends Diet {
     public static void main(String[] args) {
         System.out.println("Hello world");
 

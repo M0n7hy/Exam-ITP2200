@@ -1,3 +1,5 @@
+package Exam2021;
+
 public class Diet {
 
 
@@ -16,6 +18,9 @@ public class Diet {
         String Result = "";
         return Result;
     }
+
+
+
 
 
 
