@@ -7,9 +7,6 @@ public class DietManager  {
 
     public boolean areCompatible(Person person, Diet diet){
 
-        if ()
-
-
         return false;
     }
 

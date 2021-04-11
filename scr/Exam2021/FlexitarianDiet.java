@@ -22,7 +22,7 @@ public class FlexitarianDiet extends Diet {
                 new Food("Tomato", 18, true, FoodType.Carb),
                 new Food("Soup", 68, true, FoodType.Carb),
                 new Food("Apple", 52, true, FoodType.Carb),
-                new Food("Strawberry", 33, true, FoodType.Carb),
+                new Food("Strawberry", 33, true, FoodType.Carb)
 
         };
         isVegan = false;
