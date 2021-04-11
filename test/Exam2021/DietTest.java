@@ -25,16 +25,15 @@ public class DietTest {
     }
 
     @Test
-    public void randomPersRandomDiet(){
+    public void randomPersonRandomDiet(){
         Person person = new Person();
         VeganDiet veganDiet = new VeganDiet();
         DietManager dietManager = new DietManager();
 
-        dietManager.areCompatible(person, veganDiet);
-
+       boolean res = dietManager.areCompatible(person, veganDiet);
+        if (!res)
+        throw new IllegalArgumentException("This diet is not compatible to this person.");
     }
-
-
 
 
 
