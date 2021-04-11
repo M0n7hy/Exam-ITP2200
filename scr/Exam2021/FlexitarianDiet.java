@@ -8,4 +8,8 @@ public class FlexitarianDiet extends Diet {
     Food preferredMeat;
 
 
+    @Override
+    void Diet() {
+
+    }
 }

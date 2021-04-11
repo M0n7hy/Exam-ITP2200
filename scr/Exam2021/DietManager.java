@@ -1,17 +1,15 @@
 package Exam2021;
 
-import Exam2021.Diet;
 
 import java.util.ArrayList;
 
-public class DietManager extends Diet {
-    public static void main(String[] args) {
-        System.out.println("Hello world");
-
-    }
-
+public class DietManager  {
 
     public boolean areCompatible(Person person, Diet diet){
+
+        if ()
+
+
         return false;
     }
 
@@ -22,13 +20,6 @@ public class DietManager extends Diet {
 
 
 
-    public void areCompatible() {
-        Person person = new Person();
-        Diet diet = new Diet();
-    }
 
-    public void randomDiet() {
-        Person p = new Person();
-        ArrayList<Food> food = new ArrayList<>();
-    }
+
 }

@@ -21,6 +21,14 @@ public class Date {
         return Math.abs(period.getDays());
     }
 
-    public static int
+    public int monthSince(Date d){
+        Period period = Period.between(this.date, d.date);
+        return Math.abs(period.getMonths());
+    }
+
+    public int yearSince(Date d){
+        Period period = Period.between(this.date, d.date);
+        return Math.abs(period.getYears());
+    }
 
 }
