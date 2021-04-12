@@ -13,7 +13,7 @@ public class Person {
 
     public Person() {
         favoriteFood = new Food("Tofu");
-        allergies = new Food[]{new Food("fish"), new Food("nuts")};
+        allergies = new Food[]{new Food("Nuts")};
         weight = 55.9f;
         diet = new VeganDiet();
     }
