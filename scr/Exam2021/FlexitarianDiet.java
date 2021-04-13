@@ -8,10 +8,14 @@ public class FlexitarianDiet extends Diet {
     Food preferredMeat;
 
 
+    public FlexitarianDiet() {
+        Diet();
+    }
+
     @Override
     void Diet() {
         daysDuration = 150;
-        purpose = "";
+        purpose = "Keep in shape";
         allowedFood = new Food[]{
                 new Food("Rice", 130, true, FoodType.Protein),
                 new Food("Salad", 200, true, FoodType.Recipe),
