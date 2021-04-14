@@ -43,14 +43,14 @@ public class DietTest {
 
 
         String resFlex = flex.writeAllowedFood();
-        String resVeg = vegan.writeAllowedFood();
-        String resHyp = hyper.writeAllowedFood();
-        String resLow = lovC.writeAllowedFood();
+        String resVegan = vegan.writeAllowedFood();
+        String resHyper = hyper.writeAllowedFood();
+        String resLowCarb = lovC.writeAllowedFood();
 
         assertEquals("The following food is allowed in the Flexitarian Diet: Rice, Salad, Salmon, Cod, Bread, Potato, Tomato, Soup, Apple, Strawberry,", resFlex);
-        assertEquals("The following food is allowed in the Vegan Diet: Tofu, Salad, Rice, Lentils, Bread, Nuts," ,resVeg);
-        assertEquals("The following food is allowed in the Hypercaloric Diet: Chicken, Salad, Rice, Salmon, Bread, Steak,", resHyp);
-        assertEquals("The following food is allowed in the Lowcarb Diet: Chicken, Salad, Rice, Salmon, Bread,", resLow);
+        assertEquals("The following food is allowed in the Vegan Diet: Tofu, Salad, Rice, Lentils, Bread, Nuts," ,resVegan);
+        assertEquals("The following food is allowed in the Hypercaloric Diet: Chicken, Salad, Rice, Salmon, Bread, Steak,", resHyper);
+        assertEquals("The following food is allowed in the Lowcarb Diet: Chicken, Salad, Rice, Salmon, Bread,", resLowCarb);
 
     }
 

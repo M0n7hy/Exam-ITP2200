@@ -13,7 +13,7 @@ public class HypercaloricDiet extends Diet {
     @Override
     void Diet() {
         daysDuration = 200;
-        purpose = "max calories";
+        purpose = "max calories(mostly for pro's)";
         allowedFood = new Food[]{
                 new Food("Chicken", 150, false, FoodType.Protein),
                 new Food("Salad", 200, true, FoodType.Recipe),
