@@ -1,17 +1,19 @@
 package Exam2021;
 
-import Exam2021.Diet;
-
 public class FlexitarianDiet extends Diet {
 
     float maxMeatGramsPerWeek;
     Food preferredMeat;
 
 
+    public FlexitarianDiet() {
+        Diet();
+    }
+
     @Override
     void Diet() {
         daysDuration = 150;
-        purpose = "";
+        purpose = "Keep in shape";
         allowedFood = new Food[]{
                 new Food("Rice", 130, true, FoodType.Protein),
                 new Food("Salad", 200, true, FoodType.Recipe),
@@ -26,5 +28,10 @@ public class FlexitarianDiet extends Diet {
 
         };
         isVegan = false;
+    }
+
+    public FlexitarianDiet(String name,Food[] allowedFood){
+        this.name = name;
+        this.allowedFood = allowedFood;
     }
 }

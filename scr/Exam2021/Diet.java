@@ -15,7 +15,10 @@ abstract class Diet {
     Date endDate;
 
 
+
     abstract void Diet();
+
+
 
 
     public String writeDuraton(){
@@ -25,9 +28,49 @@ abstract class Diet {
     }
 
     public String writeAllowedFood(){
-        String Result = "";
+
+        String tempFood = "";
+
+        for (int i = 0; i < this.allowedFood.length; i++) {
+            tempFood += " " + this.allowedFood[i].name + ",";
+        }
+
+        String Result = "The following food is allowed in the " + getName() + ":" + tempFood;
         return Result;
     }
+
+
+    public String writeAlowedFood2(){
+
+        String res ="";
+
+        for (int i = 0; i < allowedFood.length; i++) {
+            res += getAllowedFood()[i].name + ", ";
+
+        }
+
+        String Result = "The following food is allowed in this " + getName() + ": " + res;
+        return Result;
+    }
+
+    public void isVegan(Diet d) {
+
+        for (int i = 0; i < d.allowedFood.length; i++) {
+            if (d.allowedFood[i].isVegan == false) {
+                throw new IllegalArgumentException("This diet can not be Vegan.");
+            }else{
+                System.out.println("This diet can be Vegan");
+            }
+
+        }
+    }
+
+
+
+    public void dietName(String name) {
+        this.name = name;
+    }
+
     public void dietDuration(String name, Date startDate, Date endDate){
         this.name = name;
         this.startDate = startDate;
@@ -58,6 +101,14 @@ abstract class Diet {
 
     public Date getEndDate() {
         return endDate;
+    }
+
+    public Food[] getAllowedFood() {
+        return allowedFood;
+    }
+
+    public void setAllowedFood(Food[] allowedFood) {
+        this.allowedFood = allowedFood;
     }
 
 

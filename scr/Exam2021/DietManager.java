@@ -9,7 +9,7 @@ public class DietManager  {
 
         for (Food f: person.allergies) {
             for (Food food: diet.allowedFood) {
-                    if (f.name.equals(food.name)){
+                    if (f.name == food.name){
                         count++;
                     }
             }
