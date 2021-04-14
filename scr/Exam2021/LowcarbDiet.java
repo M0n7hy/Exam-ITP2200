@@ -34,5 +34,4 @@ public class LowcarbDiet extends Diet {
         };
         isVegan = false;
     }
-
 }
