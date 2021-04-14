@@ -6,6 +6,19 @@ public class HypercaloricDiet extends Diet {
     float minCaloriesPerDay;
 
 
+    public HypercaloricDiet(float personsWeight){
+       this.maxWeighKg = personsWeight;
+        if (personsWeight > 150){
+            return;
+        } else {
+            throw new IllegalArgumentException("This person is too overweight to go on this diet");
+        }
+    }
+
+
+
+
+
     @Override
     void Diet() {
 
