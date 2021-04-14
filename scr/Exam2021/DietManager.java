@@ -1,9 +1,6 @@
 package Exam2021;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class DietManager  {
 
     public boolean areCompatible(Person person, Diet diet){
@@ -30,8 +27,6 @@ public class DietManager  {
 
         return null;
     }
-
-
 
 
 
