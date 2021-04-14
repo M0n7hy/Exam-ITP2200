@@ -1,7 +1,5 @@
 package Exam2021;
 
-import Exam2021.Diet;
-
 public class FlexitarianDiet extends Diet {
 
     float maxMeatGramsPerWeek;
@@ -30,5 +28,10 @@ public class FlexitarianDiet extends Diet {
 
         };
         isVegan = false;
+    }
+
+    public FlexitarianDiet(String name,Food[] allowedFood){
+        this.name = name;
+        this.allowedFood = allowedFood;
     }
 }
