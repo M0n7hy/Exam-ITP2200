@@ -32,7 +32,8 @@ public class HypercaloricDiet extends Diet {
                 new Food("Bread", 80, true, FoodType.Carb),
                 new Food("Steak", 270, false, FoodType.Protein)
         };
-        isVegan = false;
+        //skal vi ta bort denne, og hente isVegan fra allowed food?
+        //isVegan = false;
 
     }
 }
