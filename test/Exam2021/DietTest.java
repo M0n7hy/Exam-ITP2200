@@ -15,8 +15,11 @@ public class DietTest {
 
     @Test
     public void isNotVegan(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 150, true, FoodType.Protein), new Food("fish", 200, false, FoodType.Recipe),
-                new Food("bacon", 300, false, FoodType.Carb), new Food("Lentils", 120, true, FoodType.Protein)}, true, 60);
+        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
+                new Food("Tofu", 150, true, FoodType.Protein),
+                new Food("fish", 200, false, FoodType.Recipe),
+                new Food("bacon", 300, false, FoodType.Carb),
+                new Food("Lentils", 120, true, FoodType.Protein)}, true, 60);
 
         vegan.isVegan(vegan);
 
@@ -130,6 +133,30 @@ public class DietTest {
         boolean res = dietManager.areCompatible(person, veganDiet);
         if (!res)
             throw new IllegalArgumentException("This diet is not compatible to this person.");
+    }
+
+    /************************ Requirements 4b ***************************/
+    @Test
+    public void hypercaloricDiet() {
+        Person person = new Person();
+        HypercaloricDiet hyper = new HypercaloricDiet();
+        DietManager manager = new DietManager();
+        Food[] food;
+        food = new Food[]{
+                new Food("Rice", 130, true, FoodType.Carb),
+                new Food("Salad", 200, true, FoodType.Recipe)
+        };
+
+
+        hyper.daysDuration = 60;
+        hyper.purpose = "Test";
+
+        hyper = manager.randomDiet(person, food);
+
+
+        //isVegan: false if there is some non-vegan Food, true otherwise.
+        assertEquals(false, hyper.getIsVegan());
+
     }
 
 

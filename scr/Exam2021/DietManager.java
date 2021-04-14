@@ -23,7 +23,11 @@ public class DietManager  {
         }
     }
 
-    public HypercaloricDiet randomDiet(Person person, Food food){
+
+
+
+
+    public HypercaloricDiet randomDiet(Person person, Food[] food){
 
         return null;
     }

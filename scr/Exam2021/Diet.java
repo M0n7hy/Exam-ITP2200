@@ -8,7 +8,7 @@ abstract class Diet {
     int daysDuration;
     String purpose;
     Food[] allowedFood;
-    boolean isVegan;
+    private boolean isVegan;
 
     String name;
     Date startDate;
@@ -67,6 +67,8 @@ abstract class Diet {
 
 
 
+
+
     public void dietName(String name) {
         this.name = name;
     }
@@ -111,6 +113,16 @@ abstract class Diet {
         this.allowedFood = allowedFood;
     }
 
+    //1a.If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
+    //1b.If a diet contains only vegan food, it is considered vegan, even if it is not a VeganDiet (e.g., it could be a LowCarbDiet).
+    //1c.A VeganDiet cannot contain non-vegan food.
+    public boolean getIsVegan() {
+        Boolean isVegan = true;
+        for (int i = 0; i < allowedFood.length; i++) {
+            isVegan = isVegan & this.allowedFood[i].isVegan;
+        }
+        return isVegan;
+    }
 
 
 

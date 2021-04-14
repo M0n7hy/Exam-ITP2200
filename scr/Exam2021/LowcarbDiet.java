@@ -30,7 +30,7 @@ public class LowcarbDiet extends Diet {
                 new Food("Salmon", 100, false, FoodType.Protein),
                 new Food("Bread", 80, true, FoodType.Carb)
         };
-        isVegan = false;
+        //isVegan = false;
     }
 
 }

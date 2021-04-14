@@ -26,7 +26,7 @@ public class VeganDiet extends Diet {
                 new Food("Bread", 80, true, FoodType.Carb),
                 new Food("Nuts",22, true, FoodType.Carb)
         };
-        isVegan = true;
+        //isVegan = true;
     }
 
     public VeganDiet(){
@@ -40,14 +40,14 @@ public class VeganDiet extends Diet {
                     new Food("Bread", 80, true, FoodType.Carb),
                     new Food("Nuts",22, true, FoodType.Carb)
             };
-            isVegan = true;
+            //isVegan = true;
     }
 
     public VeganDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight){
         this.daysDuration = daysD;
         this.purpose = purpose;
         this.allowedFood = allowedFood;
-        this.isVegan = isVegan;
+        //this.isVegan = isVegan;
 
         minweightkg(checkWeight);
     }
