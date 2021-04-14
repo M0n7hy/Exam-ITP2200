@@ -1,8 +1,5 @@
 package Exam2021;
 
-import Exam2021.Diet;
-import Exam2021.Food;
-
 public class Person {
 
     Food favoriteFood;
@@ -22,6 +19,12 @@ public class Person {
         this.favoriteFood = favoriteFood;
         this.allergies = allergies;
         this.diet = diet;
+        this.weight = weight;
+    }
+
+    public Person(Food favoriteFood, Food[] allergies, Float weight ){
+        this.favoriteFood = favoriteFood;
+        this.allergies = allergies;
         this.weight = weight;
     }
 

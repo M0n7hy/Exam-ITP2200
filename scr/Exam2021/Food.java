@@ -1,7 +1,5 @@
 package Exam2021;
 
-import java.util.ArrayList;
-
 public class Food {
     String name;
     float caloriePer100g;

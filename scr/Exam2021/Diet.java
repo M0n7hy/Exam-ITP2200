@@ -1,7 +1,5 @@
 package Exam2021;
 
-import java.util.Arrays;
-
 import static Exam2021.Date.dayDiff;
 
 abstract class Diet {
@@ -41,6 +39,34 @@ abstract class Diet {
         return Result;
     }
 
+
+    public String writeAlowedFood2(){
+
+        String res ="";
+
+        for (int i = 0; i < allowedFood.length; i++) {
+            res += getAllowedFood()[i].name + ", ";
+
+        }
+
+        String Result = "The following food is allowed in this " + getName() + ": " + res;
+        return Result;
+    }
+
+    public void isVegan(Diet d) {
+
+        for (int i = 0; i < d.allowedFood.length; i++) {
+            if (d.allowedFood[i].isVegan == false) {
+                throw new IllegalArgumentException("This diet can not be Vegan.");
+            }else{
+                System.out.println("This diet can be Vegan");
+            }
+
+        }
+    }
+
+
+
     public void dietName(String name) {
         this.name = name;
     }
@@ -75,6 +101,14 @@ abstract class Diet {
 
     public Date getEndDate() {
         return endDate;
+    }
+
+    public Food[] getAllowedFood() {
+        return allowedFood;
+    }
+
+    public void setAllowedFood(Food[] allowedFood) {
+        this.allowedFood = allowedFood;
     }
 
 

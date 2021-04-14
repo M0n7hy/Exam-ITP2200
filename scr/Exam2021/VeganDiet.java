@@ -1,7 +1,5 @@
 package Exam2021;
 
-import Exam2021.Diet;
-
 public class VeganDiet extends Diet {
 
     Float minWeightKg;
@@ -45,6 +43,14 @@ public class VeganDiet extends Diet {
             isVegan = true;
     }
 
+    public VeganDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight){
+        this.daysDuration = daysD;
+        this.purpose = purpose;
+        this.allowedFood = allowedFood;
+        this.isVegan = isVegan;
+
+        minweightkg(checkWeight);
+    }
 
 
 }
