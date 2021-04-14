@@ -24,6 +24,8 @@ public class DietTest {
         assertEquals("Vegan Diet lasts for 1 years, 6 months and 5 days.", res);
     }
 
+
+
     @Test
     public void randomPersonRandomDiet(){
         Person person = new Person();

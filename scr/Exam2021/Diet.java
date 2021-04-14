@@ -24,7 +24,7 @@ abstract class Diet {
         return Result;
     }
 
-    public String writeAlowedFood(){
+    public String writeAllowedFood(){
         String Result = "";
         return Result;
     }

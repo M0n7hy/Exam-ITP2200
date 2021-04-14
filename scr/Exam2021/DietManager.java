@@ -1,9 +1,6 @@
 package Exam2021;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class DietManager  {
 
     public boolean areCompatible(Person person, Diet diet){
@@ -24,15 +21,12 @@ public class DietManager  {
             }else {
         return true;
         }
-        return false;
     }
 
     public HypercaloricDiet randomDiet(Person person, Food food){
 
         return null;
     }
-
-
 
 
 
