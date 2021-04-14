@@ -8,7 +8,7 @@ abstract class Diet {
     int daysDuration;
     String purpose;
     Food[] allowedFood;
-    private boolean isVegan;
+    boolean isVegan;
 
     String name;
     Date startDate;
@@ -53,10 +53,11 @@ abstract class Diet {
         return Result;
     }
 
+    /*
     public void isVegan(Diet d) {
 
         for (int i = 0; i < d.allowedFood.length; i++) {
-            if (d.allowedFood[i].isVegan == false) {
+            if (!d.allowedFood[i].isVegan) {
                 throw new IllegalArgumentException("This diet can not be Vegan.");
             }else{
                 System.out.println("This diet can be Vegan");
@@ -64,8 +65,20 @@ abstract class Diet {
 
         }
     }
+    */
 
+    //1a.If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
+    //1b.If a diet contains only vegan food, it is considered vegan, even if it is not a VeganDiet (e.g., it could be a LowCarbDiet).
+    //1c.A VeganDiet cannot contain non-vegan food.
+    public void isVegan() {
 
+        for (int i = 0; i < allowedFood.length; i++) {
+            if ( !allowedFood[i].isVegan){
+                throw new IllegalArgumentException("This food is not vegan.");
+            }
+
+        }
+    }
 
 
 
@@ -113,16 +126,7 @@ abstract class Diet {
         this.allowedFood = allowedFood;
     }
 
-    //1a.If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
-    //1b.If a diet contains only vegan food, it is considered vegan, even if it is not a VeganDiet (e.g., it could be a LowCarbDiet).
-    //1c.A VeganDiet cannot contain non-vegan food.
-    public boolean getIsVegan() {
-        Boolean isVegan = true;
-        for (int i = 0; i < allowedFood.length; i++) {
-            isVegan = isVegan & this.allowedFood[i].isVegan;
-        }
-        return isVegan;
-    }
+
 
 
 
