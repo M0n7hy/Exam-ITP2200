@@ -24,6 +24,7 @@ public class DietManager  {
             }else {
         return true;
         }
+        return false;
     }
 
     public HypercaloricDiet randomDiet(Person person, Food food){
