@@ -28,9 +28,9 @@ public class LowcarbDiet extends Diet {
                 new Food("Salad", 200, true, FoodType.Recipe),
                 new Food("Rice", 300, true, FoodType.Carb),
                 new Food("Salmon", 100, false, FoodType.Protein),
-                new Food("Bread", 80, true, FoodType.Carb)
+                new Food("Bread", 80, true, FoodType.Carb),
         };
-        //isVegan = false;
+        isVegan = false;
     }
 
 }
