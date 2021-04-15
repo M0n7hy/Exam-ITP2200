@@ -81,6 +81,24 @@ abstract class Diet {
     }
 
 
+    public void isVeganIsNotVegan(){
+
+        int number = 0;
+        int count = 0;
+        for (int i = 0; i < allowedFood.length; i++ ){
+            if(allowedFood[i].isVegan != true){
+              count++;
+            }else if(allowedFood[i].isVegan == true){
+                number++;
+            }
+        } if(count > 0){
+            throw new IllegalArgumentException("This is not a vegan diet.");
+        }else if(number == allowedFood.length){
+            throw new IllegalArgumentException("This is a vegan Diet!");
+        }
+    }
+
+
 
 
 
