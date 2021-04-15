@@ -155,8 +155,13 @@ public class DietTest {
 
 
         //isVegan: false if there is some non-vegan Food, true otherwise.
-       // assertEquals(false, hyper.getIsVegan());
+        //assertEquals(false, hyper.getIsVegan());
 
+    }
+
+    @Test
+    public void reqb() {
+        DietManager testmanager = new DietManager();
     }
 
 
