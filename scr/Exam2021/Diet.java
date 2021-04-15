@@ -1,5 +1,9 @@
 package Exam2021;
 
+import javax.print.DocFlavor;
+
+import java.util.ArrayList;
+
 import static Exam2021.Date.dayDiff;
 
 abstract class Diet {
@@ -40,36 +44,6 @@ abstract class Diet {
     }
 
 
-    public String writeAlowedFood2(){
-
-        String res ="";
-
-        for (int i = 0; i < allowedFood.length; i++) {
-            res += getAllowedFood()[i].name + ", ";
-
-        }
-
-        String Result = "The following food is allowed in this " + getName() + ": " + res;
-        return Result;
-    }
-
-    /*
-    public void isVegan(Diet d) {
-
-        for (int i = 0; i < d.allowedFood.length; i++) {
-            if (!d.allowedFood[i].isVegan) {
-                throw new IllegalArgumentException("This diet can not be Vegan.");
-            }else{
-                System.out.println("This diet can be Vegan");
-            }
-
-        }
-    }
-    */
-
-    //1a.If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
-    //1b.If a diet contains only vegan food, it is considered vegan, even if it is not a VeganDiet (e.g., it could be a LowCarbDiet).
-    //1c.A VeganDiet cannot contain non-vegan food.
     public void isVegan() {
 
         for (int i = 0; i < allowedFood.length; i++) {
@@ -81,8 +55,63 @@ abstract class Diet {
     }
 
 
+    public void isVeganIsNotVegan(){
+
+        int number = 0;
+        int count = 0;
+        for (int i = 0; i < allowedFood.length; i++ ){
+            if(allowedFood[i].isVegan != true){
+              count++;
+            }else if(allowedFood[i].isVegan == true){
+                number++;
+            }
+        } if(count > 0 && isVegan == true){
+            throw new IllegalArgumentException("This is not a vegan diet.");
+        }else if(number == allowedFood.length && isVegan == false){
+            throw new IllegalArgumentException("This is a vegan Diet!");
+        }
+    }
+
+    public boolean allergicMethod(Person person, Diet diet){
+        int count = 0;
+
+        for (Food f: person.allergies) {
+            for (Food food: diet.allowedFood) {
+                if (f.name == food.name){
+                    count++;
+                }
+            }
+
+        }
+        int dividedAllFoodLen = diet.allowedFood.length/2;
+        if (count >= dividedAllFoodLen){
+            return false;
+        }else {
+            return true;
+        }
+    }
+    public void noMoreThenTwoCarb(){
+        ArrayList<String> carbArray = new ArrayList<>();
+        carbArray.add("Rice");
+        carbArray.add("Bread");
+        carbArray.add("Pasta");
+        carbArray.add("Suger");
+        carbArray.add("Potato");
 
 
+        int count = 0;
+        for (Food f: allowedFood){
+            for (String s: carbArray){
+                if (f.name.equals(s)){
+                    count++;
+                }
+            }
+        }
+        if(count > 2){
+            throw new IllegalArgumentException("There can only be 2 carb types inn the LowCarbDiet.");
+        }
+
+    }
 
 
     public void dietName(String name) {
@@ -125,9 +154,7 @@ abstract class Diet {
         return allowedFood;
     }
 
-    public void setAllowedFood(Food[] allowedFood) {
-        this.allowedFood = allowedFood;
-    }
+
 
 
 
