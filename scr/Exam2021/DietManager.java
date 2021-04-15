@@ -11,6 +11,7 @@ public class DietManager {
 
     public void HypercaloricDiet(Person person, Food[] food) {
 
+
         Random random = new Random();
         int min1 = 1;
         int max1 = 100;
