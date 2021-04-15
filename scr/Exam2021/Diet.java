@@ -1,5 +1,9 @@
 package Exam2021;
 
+import javax.print.DocFlavor;
+
+import java.util.ArrayList;
+
 import static Exam2021.Date.dayDiff;
 
 abstract class Diet {
@@ -40,21 +44,6 @@ abstract class Diet {
     }
 
 
-    public String writeAlowedFood2(){
-
-        String res ="";
-
-        for (int i = 0; i < allowedFood.length; i++) {
-            res += getAllowedFood()[i].name + ", ";
-
-        }
-
-        String Result = "The following food is allowed in this " + getName() + ": " + res;
-        return Result;
-    }
-
-
-
     public void isVegan() {
 
         for (int i = 0; i < allowedFood.length; i++) {
@@ -76,9 +65,9 @@ abstract class Diet {
             }else if(allowedFood[i].isVegan == true){
                 number++;
             }
-        } if(count > 0){
+        } if(count > 0 && isVegan == true){
             throw new IllegalArgumentException("This is not a vegan diet.");
-        }else if(number == allowedFood.length){
+        }else if(number == allowedFood.length && isVegan == false){
             throw new IllegalArgumentException("This is a vegan Diet!");
         }
     }
@@ -102,11 +91,27 @@ abstract class Diet {
         }
     }
     public void noMoreThenTwoCarb(){
+        ArrayList<String> carbArray = new ArrayList<>();
+        carbArray.add("Rice");
+        carbArray.add("Bread");
+        carbArray.add("Pasta");
+        carbArray.add("Suger");
+        carbArray.add("Potato");
+
+
+        int count = 0;
+        for (Food f: allowedFood){
+            for (String s: carbArray){
+                if (f.name.equals(s)){
+                    count++;
+                }
+            }
+        }
+        if(count > 2){
+            throw new IllegalArgumentException("There can only be 2 carb types inn the LowCarbDiet.");
+        }
 
     }
-
-
-
 
 
     public void dietName(String name) {
@@ -149,9 +154,7 @@ abstract class Diet {
         return allowedFood;
     }
 
-    public void setAllowedFood(Food[] allowedFood) {
-        this.allowedFood = allowedFood;
-    }
+
 
 
 

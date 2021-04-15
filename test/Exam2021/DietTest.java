@@ -11,10 +11,15 @@ public class DietTest {
 
 
     /********************************* Requirements 1 *********************************/
+    @Test
+    public void isVeganIsNotVegan(){
+        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Salmon", 100, false, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},true ,88);
+        vegan.isVeganIsNotVegan();
 
+    }
 
     @Test
-    public void isNotVegan(){
+    public void isVegan(){
         VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
                 new Food("Tofu", 150, true, FoodType.Protein),
                 new Food("fish", 200, false, FoodType.Recipe),
@@ -29,6 +34,13 @@ public class DietTest {
     /**************************** Requirements 2 *******************************/
 
     @Test
+    public void maxTwoCarb(){
+        LowcarbDiet lowCarb = new LowcarbDiet();
+        lowCarb.noMoreThenTwoCarb();
+    }
+
+
+    @Test
     public void underWeight(){
         LowcarbDiet lowCarb = new LowcarbDiet();
         lowCarb.LowcarbDiet(55);
@@ -37,9 +49,8 @@ public class DietTest {
     @Test
     public void overWeight(){
         HypercaloricDiet h1 = new HypercaloricDiet(150);
-
-
     }
+
 
     @Test
     public void allergicToo50(){
@@ -87,11 +98,11 @@ public class DietTest {
 
 
     @Test
-    public void Flexitest(){
+    public void flexitestAllowdFood(){
         FlexitarianDiet flex = new FlexitarianDiet( "FlexitarianDiet" ,new Food[]{new Food("Fish"), new Food("Apple"), new Food("Salad"), new Food("Milk"), new Food("Rice")});
 
-        String res = flex.writeAlowedFood2();
-        assertEquals("The following food is allowed in this FlexitarianDiet: Fish, Apple, Salad, Milk, Rice, ", res);
+        String res = flex.writeAllowedFood();
+        assertEquals("The following food is allowed in the FlexitarianDiet: Fish, Apple, Salad, Milk, Rice,", res);
 
     }
 
@@ -161,12 +172,9 @@ public class DietTest {
 
     }
 
-    @Test
-    public void reqb() {
-        DietManager testmanager = new DietManager();
-    }
 
 
+    /**************************Tests********************************************/
     @Test
     public void test(){
      HypercaloricDiet hey = new HypercaloricDiet();
@@ -176,9 +184,8 @@ public class DietTest {
     }
 
     @Test
-    public void prøve(){
-        Person person = new Person(new Food("Ham"), new Food[]{new Food("Nut")}, new VeganDiet(), 88.8f);
-
+    public void reqb() {
+        DietManager testmanager = new DietManager();
     }
 
 
