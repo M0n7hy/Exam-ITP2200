@@ -53,23 +53,8 @@ abstract class Diet {
         return Result;
     }
 
-    /*
-    public void isVegan(Diet d) {
 
-        for (int i = 0; i < d.allowedFood.length; i++) {
-            if (!d.allowedFood[i].isVegan) {
-                throw new IllegalArgumentException("This diet can not be Vegan.");
-            }else{
-                System.out.println("This diet can be Vegan");
-            }
 
-        }
-    }
-    */
-
-    //1a.If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
-    //1b.If a diet contains only vegan food, it is considered vegan, even if it is not a VeganDiet (e.g., it could be a LowCarbDiet).
-    //1c.A VeganDiet cannot contain non-vegan food.
     public void isVegan() {
 
         for (int i = 0; i < allowedFood.length; i++) {
@@ -98,6 +83,27 @@ abstract class Diet {
         }
     }
 
+    public boolean allergicMethod(Person person, Diet diet){
+        int count = 0;
+
+        for (Food f: person.allergies) {
+            for (Food food: diet.allowedFood) {
+                if (f.name == food.name){
+                    count++;
+                }
+            }
+
+        }
+        int dividedAllFoodLen = diet.allowedFood.length/2;
+        if (count >= dividedAllFoodLen){
+            return false;
+        }else {
+            return true;
+        }
+    }
+    public void noMoreThenTwoCarb(){
+
+    }
 
 
 

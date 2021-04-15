@@ -136,6 +136,8 @@ public class DietTest {
     }
 
     /************************ Requirements 4b ***************************/
+
+    //Må forandres på.
     @Test
     public void hypercaloricDiet() {
         Person person = new Person();
@@ -173,6 +175,11 @@ public class DietTest {
 
     }
 
+    @Test
+    public void prøve(){
+        Person person = new Person(new Food("Ham"), new Food[]{new Food("Nut")}, new VeganDiet(), 88.8f);
+
+    }
 
 
 
