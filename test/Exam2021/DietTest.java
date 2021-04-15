@@ -54,9 +54,11 @@ public class DietTest {
 
     @Test
     public void allergicToo50(){
-        Person person = new Person(new Food("IceCream"), new Food[]{new Food("Almonds"), new Food("dairy")}, 88.8f);
+        Person person = new Person(
+                new Food("IceCream"), new Food[]{new Food("Almonds"), new Food("dairy")}, 88.8f);
         VeganDiet veganDiet = new VeganDiet(28, "Strength", new
-                Food[]{new Food("Almonds"), new Food("dairy")}, true, 66);
+                Food[]{
+                        new Food("Almonds"), new Food("dairy")}, true, 66);
         DietManager dietManager = new DietManager();
 
         boolean res = dietManager.areCompatible(person, veganDiet);
@@ -179,8 +181,6 @@ public class DietTest {
     public void test(){
      HypercaloricDiet hey = new HypercaloricDiet();
      hey.isVegan();
-
-
     }
 
     @Test

@@ -6,6 +6,9 @@ public class Food {
     Boolean isVegan;
     FoodType type;
 
+    public Food(){
+    }
+
     public Food(String name){
         this.name = name;
     }
@@ -16,8 +19,5 @@ public class Food {
         this.isVegan = isVegan;
         this.type = type;
     }
-
-
-
 
 }
