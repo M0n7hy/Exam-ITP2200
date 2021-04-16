@@ -11,6 +11,20 @@ public class DietTest {
 
 
     /********************************* Requirements 1 *********************************/
+
+    /*Requirement 1.A pass*/
+    @Test
+    public void isVeganIsNotVegan2(){
+        FlexitarianDiet F1 = new FlexitarianDiet();
+        F1.isVeganIsNotVegan();
+    }
+
+    /*Requirement 1.A Fail*/
+
+
+
+    /*Requirement 1.B pass*/
+
     @Test
     public void isVeganIsNotVegan(){
         VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},true ,88);
@@ -18,12 +32,7 @@ public class DietTest {
 
     }
 
-    @Test
-    public void isVeganIsNotVegan2(){
-        FlexitarianDiet F1 = new FlexitarianDiet();
-        F1.isVeganIsNotVegan();
-    }
-
+    /*Requirement 1.B Fail*/
 
 
     @Test
@@ -38,6 +47,8 @@ public class DietTest {
 
     }
 
+
+    /*Requirement 1.E Fail (Throw a exception)*/
     @Test
     public void onlyTwoCarbFail(){
         LowcarbDiet L1 = new LowcarbDiet(200, "Lose weight",
@@ -49,6 +60,7 @@ public class DietTest {
         L1.noMoreThenTwoCarb();
     }
 
+    /*Requirement 1.E Pass*/
 
     @Test
     public void onlyTwoCarbPass(){

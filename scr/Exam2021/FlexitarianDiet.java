@@ -5,6 +5,17 @@ public class FlexitarianDiet extends Diet {
     float maxMeatGramsPerWeek;
     Food preferredMeat;
 
+        public void giveMeatAndGrams(float grams, Food meat){
+            this.maxMeatGramsPerWeek = grams;
+            this.preferredMeat = meat;
+
+            if (meat.isVegan == false && meat.type == FoodType.Protein){
+                return;
+            }else{
+                throw new IllegalArgumentException("Must be non-Vegan food");
+            }
+
+        }
 
 
     public FlexitarianDiet() {
