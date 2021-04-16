@@ -20,11 +20,6 @@ abstract class Diet {
 
 
 
-    abstract void Diet();
-
-
-
-
     public String writeDuraton(){
         String Result = getName() + " lasts for " + getEndDate().yearSince(getStartDate())+ " years, " + getEndDate().monthSince(getStartDate())+ " months and "
                 + dayDiff(getStartDate(), getEndDate()) +" days.";
@@ -91,25 +86,19 @@ abstract class Diet {
         }
     }
     public void noMoreThenTwoCarb(){
-        ArrayList<String> carbArray = new ArrayList<>();
-        carbArray.add("Rice");
-        carbArray.add("Bread");
-        carbArray.add("Pasta");
-        carbArray.add("Suger");
-        carbArray.add("Potato");
-
 
         int count = 0;
-        for (Food f: allowedFood){
-            for (String s: carbArray){
-                if (f.name.equals(s)){
-                    count++;
-                }
+        for (int i = 0; i < allowedFood.length; i++) {
+            if (allowedFood[i].type.Carb == FoodType.Carb){
+                count ++;
             }
         }
-        if(count > 2){
-            throw new IllegalArgumentException("There can only be 2 carb types inn the LowCarbDiet.");
+        if (count > 2){
+            throw new IllegalArgumentException("Can not be more then 2 Carb types in the LowCarbDiet");
         }
+    }
+
+    public void favorittFood(){
 
     }
 

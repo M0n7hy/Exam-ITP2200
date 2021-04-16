@@ -5,11 +5,9 @@ public class HypercaloricDiet extends Diet {
     float maxWeighKg;
     float minCaloriesPerDay;
 
-    public HypercaloricDiet() {
-        Diet();
-    }
 
-    public HypercaloricDiet(float personsWeight){
+
+    public void maxWeight(float personsWeight){
         this.maxWeighKg = personsWeight;
         if (personsWeight > 150){
             return;
@@ -22,7 +20,12 @@ public class HypercaloricDiet extends Diet {
 
     @Override
     void Diet() {
-        daysDuration = 200;
+
+
+    }
+
+    public HypercaloricDiet(float checkWeight) {
+        daysDuration = 388;
         purpose = "max calories(mostly for pro's)";
         allowedFood = new Food[]{
                 new Food("Chicken", 150, false, FoodType.Protein),
@@ -30,13 +33,14 @@ public class HypercaloricDiet extends Diet {
                 new Food("Rice", 300, true, FoodType.Carb),
                 new Food("Salmon", 100, false, FoodType.Protein),
                 new Food("Bread", 80, true, FoodType.Carb),
-                new Food("Steak", 270, false, FoodType.Protein)
+                new Food("Steak", 270, false, FoodType.Protein),
+                new Food("Lasagne", 403, false, FoodType.Recipe),
+                new Food("Cheese", 120, false, FoodType.Fat),
+                new Food("Milk", 54, false, FoodType.Fat),
+                new Food("Taco", 390, false, FoodType.Recipe)
         };
-        //skal vi ta bort denne, og hente isVegan fra allowed food?
         isVegan = true;
-
-
+        maxWeight(checkWeight);
     }
-
 
 }

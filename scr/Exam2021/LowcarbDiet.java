@@ -5,22 +5,17 @@ public class LowcarbDiet extends Diet {
 
     float minWeightKg;  //se på det senere.
 
-    public LowcarbDiet() {
-        Diet();
-    }
-
-
-    public void LowcarbDiet(float personWeight){
+    public void minWeight(float personWeight){
         this.minWeightKg = personWeight;
         if (personWeight > 50){
-            Diet();
+            return;
         } else{
             throw new IllegalArgumentException("This person is too underweight to go on this diet.");
         }
     }
 
-    @Override
-    void Diet() {
+
+    public LowcarbDiet(float checkWeight) {
         daysDuration = 200;
         purpose = "weight lost";
         allowedFood = new Food[]{
@@ -29,8 +24,14 @@ public class LowcarbDiet extends Diet {
                 new Food("Rice", 300, true, FoodType.Carb),
                 new Food("Salmon", 100, false, FoodType.Protein),
                 new Food("Bread", 80, true, FoodType.Carb),
+                new Food("Cucumber", 20, true, FoodType.Protein),
+                new Food("yoghurt", 58, false, FoodType.Fat),
+                new Food("vegetarian pie", 340, false, FoodType.Recipe),
+                new Food("soup", 220, false, FoodType.Recipe),
+                new Food("Soy milk", 30, true, FoodType.Fat)
+
         };
         isVegan = false;
+        minWeight(checkWeight);
     }
-
 }

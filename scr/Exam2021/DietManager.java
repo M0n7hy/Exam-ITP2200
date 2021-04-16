@@ -6,6 +6,7 @@ import java.util.Random;
 public class DietManager {
 
     public boolean areCompatible(Person person, Diet diet){
+
         return false;
     }
 
@@ -66,6 +67,5 @@ public class DietManager {
         System.out.println(res1);
         System.out.println(res2);
         System.out.println(res3);
-        return null;
-    }
+        return randomDiet;    }
 }
