@@ -18,12 +18,6 @@ public class HypercaloricDiet extends Diet {
 
 
 
-    @Override
-    void Diet() {
-
-
-    }
-
     public HypercaloricDiet(float checkWeight) {
         daysDuration = 388;
         purpose = "max calories(mostly for pro's)";

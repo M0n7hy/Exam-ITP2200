@@ -98,7 +98,10 @@ public class DietTest {
     @Test
     public void flexitestAllowdFood(){
         FlexitarianDiet flex = new FlexitarianDiet( "FlexitarianDiet" ,new Food[]{new Food("Fish", 190, false, FoodType.Protein),
-                new Food("Apple", 80, true, FoodType.Protein), new Food("Salad", 200, true, FoodType.Recipe), new Food("Milk", 70, false, FoodType.Fat), new Food("Rice", 220, false,FoodType.Carb)});
+                new Food("Apple", 80, true, FoodType.Protein),
+                new Food("Salad", 200, true, FoodType.Recipe),
+                new Food("Milk", 70, false, FoodType.Fat),
+                new Food("Rice", 220, false,FoodType.Carb)});
 
         String res = flex.writeAllowedFood();
         assertEquals("The following food is allowed in the FlexitarianDiet: Fish, Apple, Salad, Milk, Rice,", res);
@@ -136,7 +139,7 @@ public class DietTest {
     @Test
     public void randomPersonRandomDiet(){
         Person person = new Person();
-        VeganDiet veganDiet = new VeganDiet();
+        VeganDiet veganDiet = new VeganDiet(80);
         DietManager dietManager = new DietManager();
 
 

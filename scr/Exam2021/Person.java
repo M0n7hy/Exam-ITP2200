@@ -16,7 +16,7 @@ public class Person {
                 new Food("Seaweed",20 ,true,FoodType.Protein),
                 new Food("peanut", 140, true, FoodType.Fat)};
         weight = 55.9f;
-        diet = new VeganDiet();
+        diet = new FlexitarianDiet();
     }
 
     public Person(Food favoriteFood, Food[] allergies, Diet diet, Float weight ){
