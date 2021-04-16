@@ -33,8 +33,4 @@ public class FlexitarianDiet extends Diet {
         this.isVegan = isVegan;
     }
 
-    public FlexitarianDiet(String name,Food[] allowedFood){
-        this.name = name;
-        this.allowedFood = allowedFood;
-    }
 }

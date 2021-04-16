@@ -13,45 +13,95 @@ public class DietTest {
     /********************************* Requirements 1 *********************************/
     @Test
     public void isVeganIsNotVegan(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Salmon", 100, false, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},true ,88);
+        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},true ,88);
         vegan.isVeganIsNotVegan();
 
     }
 
     @Test
+    public void isVeganIsNotVegan2(){
+        FlexitarianDiet F1 = new FlexitarianDiet();
+        F1.isVeganIsNotVegan();
+    }
+
+
+
+    @Test
     public void isVegan(){
         VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
                 new Food("Tofu", 150, true, FoodType.Protein),
-                new Food("fish", 200, false, FoodType.Recipe),
-                new Food("bacon", 300, false, FoodType.Carb),
+                new Food("Almond", 200, true, FoodType.Recipe),
+                new Food("Oat milk", 300, true, FoodType.Carb),
                 new Food("Lentils", 120, true, FoodType.Protein)}, true, 60);
 
         vegan.isVegan();
 
     }
 
+    @Test
+    public void onlyTwoCarbPass(){
+        FlexitarianDiet f1 = new FlexitarianDiet();
+        f1.noMoreThenTwoCarb();
+    }
+
+
+    @Test
+    public void onlyTwoCarbFail(){
+        LowcarbDiet L1 = new LowcarbDiet(70);
+        L1.noMoreThenTwoCarb();
+    }
+
+
 
     /**************************** Requirements 2 *******************************/
 
     @Test
-    public void maxTwoCarb(){
+    public void lowWeightPass(){
         LowcarbDiet lowCarb = new LowcarbDiet(60);
+        VeganDiet v1 = new VeganDiet(60);
+    }
+
+    @Test
+    public void lowWeightFail(){
+        LowcarbDiet lowCarb = new LowcarbDiet(40);
+    }
+    @Test
+    public void lowWeightFail2(){
+        VeganDiet v1 = new VeganDiet(40);
     }
 
 
     @Test
-    public void underWeight(){
-        LowcarbDiet lowCarb = new LowcarbDiet(55);
+    public void overWeightPass(){
+        HypercaloricDiet h1 = new HypercaloricDiet(149);
     }
 
     @Test
-    public void overWeight(){
-        HypercaloricDiet h1 = new HypercaloricDiet(150);
+    public void overWeightFail(){
+        HypercaloricDiet h1 = new HypercaloricDiet(160);
     }
 
 
+
+
+    /**************** This is a passing test  ******************/
+
     @Test
-    public void allergicToo50(){
+    public void allergicToo50Pass(){
+        Person person = new Person(
+                new Food("Ice cream", 220, false, FoodType.Fat), new Food[]{new Food("Peanut", 90, true, FoodType.Carb), new Food("Cheese", 40, false, FoodType.Fat)}, 88.8f);
+        FlexitarianDiet f1 = new FlexitarianDiet(90, "Eat less meat", new Food[]{new Food("Almonds", 90, true, FoodType.Carb),new Food("Milk", 40, false, FoodType.Fat) } , false );
+        DietManager dietManager = new DietManager();
+
+        boolean res = dietManager.areCompatible(person, f1);
+        if (!res)
+            throw new IllegalArgumentException("This diet is not compatible to this person.");
+    }
+
+    /******************* This test throws a exception ***************************/
+
+    @Test
+    public void allergicToo50fail(){
         Person person = new Person(
                 new Food("Ice cream", 220, false, FoodType.Fat), new Food[]{new Food("Almonds", 90, true, FoodType.Carb), new Food("Milk", 40, false, FoodType.Fat)}, 88.8f);
         FlexitarianDiet f1 = new FlexitarianDiet(90, "Eat less meat", new Food[]{new Food("Almonds", 90, true, FoodType.Carb),new Food("Milk", 40, false, FoodType.Fat) } , false );
@@ -65,49 +115,6 @@ public class DietTest {
 
 
     /*********************** Requirements 3 ********************************/
-
-    @Test
-    public void allowedFoodTest() {
-
-        FlexitarianDiet flex = new FlexitarianDiet();
-        flex.dietName("Flexitarian Diet");
-
-        VeganDiet vegan = new VeganDiet(60);
-        vegan.dietName("Vegan Diet");
-
-        HypercaloricDiet hyper = new HypercaloricDiet(60);
-        hyper.dietName("Hypercaloric Diet");
-
-        LowcarbDiet lovC = new LowcarbDiet(60);
-        lovC.dietName("Lowcarb Diet");
-
-
-        String resFlex = flex.writeAllowedFood();
-        String resVegan = vegan.writeAllowedFood();
-        String resHyper = hyper.writeAllowedFood();
-        String resLowCarb = lovC.writeAllowedFood();
-
-        assertEquals("The following food is allowed in the Flexitarian Diet: Rice, Salad, Salmon, Cod, Bread, Potato, Tomato, Soup, Apple, Strawberry,", resFlex);
-        assertEquals("The following food is allowed in the Vegan Diet: Tofu, Salad, Rice, Lentils, Bread, Nuts," ,resVegan);
-        assertEquals("The following food is allowed in the Hypercaloric Diet: Chicken, Salad, Rice, Salmon, Bread, Steak,", resHyper);
-        assertEquals("The following food is allowed in the Lowcarb Diet: Chicken, Salad, Rice, Salmon, Bread,", resLowCarb);
-
-    }
-
-
-    @Test
-    public void flexitestAllowdFood(){
-        FlexitarianDiet flex = new FlexitarianDiet( "FlexitarianDiet" ,new Food[]{new Food("Fish", 190, false, FoodType.Protein),
-                new Food("Apple", 80, true, FoodType.Protein),
-                new Food("Salad", 200, true, FoodType.Recipe),
-                new Food("Milk", 70, false, FoodType.Fat),
-                new Food("Rice", 220, false,FoodType.Carb)});
-
-        String res = flex.writeAllowedFood();
-        assertEquals("The following food is allowed in the FlexitarianDiet: Fish, Apple, Salad, Milk, Rice,", res);
-
-    }
-
     @Test
     public void durationTest(){
         LowcarbDiet low = new LowcarbDiet(70);
@@ -132,6 +139,37 @@ public class DietTest {
         assertEquals("Vegan Diet lasts for 0 years, 6 months and 18 days.",resVegan);
         assertEquals("Flexitarian Diet lasts for 0 years, 4 months and 28 days.", resFlex);
     }
+
+    @Test
+    public void allowedFoodTest() {
+
+        FlexitarianDiet flex = new FlexitarianDiet();
+        flex.dietName("Flexitarian Diet");
+
+        VeganDiet vegan = new VeganDiet(60);
+        vegan.dietName("Vegan Diet");
+
+        HypercaloricDiet hyper = new HypercaloricDiet(60);
+        hyper.dietName("Hypercaloric Diet");
+
+        LowcarbDiet lovC = new LowcarbDiet(60);
+        lovC.dietName("Lowcarb Diet");
+
+
+        String resFlex = flex.writeAllowedFood();
+        String resVegan = vegan.writeAllowedFood();
+        String resHyper = hyper.writeAllowedFood();
+        String resLowCarb = lovC.writeAllowedFood();
+
+        assertEquals("The following food is allowed in the Flexitarian Diet: Rice, Salad, Salmon, Cod, Bread, Potato, Tomato, Soup, Apple, Strawberry,", resFlex);
+        assertEquals("The following food is allowed in the Vegan Diet: Tofu, Salad, Rice, Lentils, Bread, Almond, Oat milk, Seaweed, Vegan burrito, peanut," ,resVegan);
+        assertEquals("The following food is allowed in the Hypercaloric Diet: Chicken, Salad, Rice, Salmon, Bread, Steak, Lasagne, Cheese, Milk, Taco,", resHyper);
+        assertEquals("The following food is allowed in the Lowcarb Diet: Chicken, Salad, Rice, Salmon, Bread, Cucumber, yoghurt, vegetarian pie, soup, Soy milk,", resLowCarb);
+
+    }
+
+
+
 
     /************************ Requirements 4 ***************************/
 
@@ -188,6 +226,8 @@ public class DietTest {
 
 
     /**************************Tests********************************************/
+
+    /*
     @Test
     public void test(){
      HypercaloricDiet hey = new HypercaloricDiet(80);
@@ -201,6 +241,8 @@ public class DietTest {
     }
 
 
+
+     */
 
 
 
