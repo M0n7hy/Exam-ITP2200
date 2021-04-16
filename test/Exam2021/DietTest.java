@@ -174,6 +174,17 @@ public class DietTest {
     }
 
 
+    @Test
+    public void test4B(){
+        Person person = new Person();
+        Food[] food = new Food[]{new Food()};
+        DietManager newdiet = new DietManager();
+
+        newdiet.randomDiet(person, food);
+
+    }
+
+
 
     /**************************Tests********************************************/
     @Test
@@ -190,7 +201,11 @@ public class DietTest {
 
 
 
+
+
 }
+
+
 
 
 

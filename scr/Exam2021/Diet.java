@@ -31,7 +31,6 @@ abstract class Diet {
         return Result;
     }
 
-    //3.b.Write the allowed food, e.g., “The following food is allowed in this FlexitarianDiet: Salad, Soup, Apple, Strawberry, Salmon”.
     public String writeAllowedFood(){
 
         String tempFood = "";
@@ -44,9 +43,7 @@ abstract class Diet {
         return Result;
     }
 
-    //1.a.If a diet contains any non-vegan food, it is considered not vegan (i.e., isVegan = false).
-    //1.b.If a diet contains only vegan food, it is considered vegan, even if it is not a VeganDiet (e.g., it could be a LowCarbDiet).
-    //1.c.A VeganDiet cannot contain non-vegan food.
+
     public void isVegan() {
 
         for (int i = 0; i < allowedFood.length; i++) {
@@ -93,8 +90,6 @@ abstract class Diet {
             return true;
         }
     }
-
-    //1.e.The maximum carb-type foods that can be included in a LowCarbDiet is two.
     public void noMoreThenTwoCarb(){
         ArrayList<String> carbArray = new ArrayList<>();
         carbArray.add("Rice");
