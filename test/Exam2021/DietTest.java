@@ -35,15 +35,13 @@ public class DietTest {
 
     @Test
     public void maxTwoCarb(){
-        LowcarbDiet lowCarb = new LowcarbDiet();
-        lowCarb.noMoreThenTwoCarb();
+        LowcarbDiet lowCarb = new LowcarbDiet(60);
     }
 
 
     @Test
     public void underWeight(){
-        LowcarbDiet lowCarb = new LowcarbDiet();
-        lowCarb.LowcarbDiet(55);
+        LowcarbDiet lowCarb = new LowcarbDiet(55);
     }
 
     @Test
@@ -55,12 +53,11 @@ public class DietTest {
     @Test
     public void allergicToo50(){
         Person person = new Person(
-                new Food("IceCream"), new Food[]{new Food("Almonds"), new Food("dairy")}, 88.8f);
-        VeganDiet veganDiet = new VeganDiet(28, "Strength", new Food[]{
-                new Food("Almonds"), new Food("dairy")}, true, 66);
+                new Food("Ice cream", 220, false, FoodType.Fat), new Food[]{new Food("Almonds", 90, true, FoodType.Carb), new Food("Milk", 40, false, FoodType.Fat)}, 88.8f);
+        FlexitarianDiet f1 = new FlexitarianDiet(90, "Eat less meat", new Food[]{new Food("Almonds", 90, true, FoodType.Carb),new Food("Milk", 40, false, FoodType.Fat) } , false );
         DietManager dietManager = new DietManager();
 
-        boolean res = dietManager.areCompatible(person, veganDiet);
+        boolean res = dietManager.areCompatible(person, f1);
         if (!res)
             throw new IllegalArgumentException("This diet is not compatible to this person.");
     }
@@ -75,13 +72,13 @@ public class DietTest {
         FlexitarianDiet flex = new FlexitarianDiet();
         flex.dietName("Flexitarian Diet");
 
-        VeganDiet vegan = new VeganDiet();
+        VeganDiet vegan = new VeganDiet(60);
         vegan.dietName("Vegan Diet");
 
-        HypercaloricDiet hyper = new HypercaloricDiet();
+        HypercaloricDiet hyper = new HypercaloricDiet(60);
         hyper.dietName("Hypercaloric Diet");
 
-        LowcarbDiet lovC = new LowcarbDiet();
+        LowcarbDiet lovC = new LowcarbDiet(60);
         lovC.dietName("Lowcarb Diet");
 
 
@@ -100,7 +97,8 @@ public class DietTest {
 
     @Test
     public void flexitestAllowdFood(){
-        FlexitarianDiet flex = new FlexitarianDiet( "FlexitarianDiet" ,new Food[]{new Food("Fish"), new Food("Apple"), new Food("Salad"), new Food("Milk"), new Food("Rice")});
+        FlexitarianDiet flex = new FlexitarianDiet( "FlexitarianDiet" ,new Food[]{new Food("Fish", 190, false, FoodType.Protein),
+                new Food("Apple", 80, true, FoodType.Protein), new Food("Salad", 200, true, FoodType.Recipe), new Food("Milk", 70, false, FoodType.Fat), new Food("Rice", 220, false,FoodType.Carb)});
 
         String res = flex.writeAllowedFood();
         assertEquals("The following food is allowed in the FlexitarianDiet: Fish, Apple, Salad, Milk, Rice,", res);
@@ -109,13 +107,13 @@ public class DietTest {
 
     @Test
     public void durationTest(){
-        LowcarbDiet low = new LowcarbDiet();
+        LowcarbDiet low = new LowcarbDiet(70);
         low.dietDuration("Vegan Diet", new Date(2019,2,24),new Date(2020, 8, 29));
 
-        HypercaloricDiet hyper = new HypercaloricDiet();
+        HypercaloricDiet hyper = new HypercaloricDiet(70);
         hyper.dietDuration("Hypercaloric Diet", new Date(2020, 4, 10), new Date(2020, 10, 27));
 
-        VeganDiet vegan = new VeganDiet();
+        VeganDiet vegan = new VeganDiet(70);
         vegan.dietDuration("Vegan Diet", new Date(2012, 12, 10), new Date(2013, 6, 28));
 
         FlexitarianDiet flex = new FlexitarianDiet();
@@ -153,7 +151,7 @@ public class DietTest {
     @Test
     public void hypercaloricDiet() {
         Person person = new Person();
-        HypercaloricDiet hyper = new HypercaloricDiet();
+        HypercaloricDiet hyper = new HypercaloricDiet(60);
         DietManager manager = new DietManager();
         Food[] food;
         food = new Food[]{
@@ -189,7 +187,7 @@ public class DietTest {
     /**************************Tests********************************************/
     @Test
     public void test(){
-     HypercaloricDiet hey = new HypercaloricDiet();
+     HypercaloricDiet hey = new HypercaloricDiet(80);
      hey.isVegan();
     }
 
