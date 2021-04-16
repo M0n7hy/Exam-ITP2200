@@ -9,9 +9,6 @@ public class Food {
     public Food(){
     }
 
-    public Food(String name){
-        this.name = name;
-    }
 
     public Food(String name, float caloriePer100g, Boolean isVegan, FoodType type){
         this.name = name;

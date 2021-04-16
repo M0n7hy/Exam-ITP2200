@@ -9,8 +9,12 @@ public class Person {
 
 
     public Person() {
-        favoriteFood = new Food("Tofu");
-        allergies = new Food[]{new Food("Nuts")};
+        favoriteFood = new Food("Salmon", 190, true, FoodType.Protein);
+        allergies = new Food[]{new Food("Almond", 90, true, FoodType.Fat),
+                new Food("Milk", 80, false, FoodType.Fat),
+                new Food("Oat milk", 44, true, FoodType.Fat),
+                new Food("Seaweed",20 ,true,FoodType.Protein),
+                new Food("peanut", 140, true, FoodType.Fat)};
         weight = 55.9f;
         diet = new VeganDiet();
     }
