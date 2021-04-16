@@ -39,14 +39,19 @@ public class DietTest {
     }
 
     @Test
-    public void onlyTwoCarbPass(){
-        FlexitarianDiet f1 = new FlexitarianDiet();
-        f1.noMoreThenTwoCarb();
+    public void onlyTwoCarbFail(){
+        LowcarbDiet L1 = new LowcarbDiet(200, "Lose weight",
+                new Food[]
+                        {new Food("Pasta", 150, true, FoodType.Carb),
+                        new Food("Bread", 200, true, FoodType.Carb),
+                        new Food("Rice", 300, true, FoodType.Carb)}, false, 80);
+
+        L1.noMoreThenTwoCarb();
     }
 
 
     @Test
-    public void onlyTwoCarbFail(){
+    public void onlyTwoCarbPass(){
         LowcarbDiet L1 = new LowcarbDiet(70);
         L1.noMoreThenTwoCarb();
     }
@@ -54,6 +59,28 @@ public class DietTest {
 
 
     /**************************** Requirements 2 *******************************/
+
+    @Test
+    public void favoritFoodPass(){
+        Person person = new Person(new Food("Seaweed", 306, true, FoodType.Carb),
+                new Food[]{ new Food("Tofu", 150, true, FoodType.Protein),
+                        new Food("Salad", 200, true, FoodType.Recipe),
+                        new Food("Rice", 300, true, FoodType.Carb),
+                        new Food("Lentils", 120, true, FoodType.Protein)}, 80.0f);
+        VeganDiet v1 = new VeganDiet(80);
+        DietManager d1 = new DietManager();
+        d1.areCompatible(person, v1);
+    }
+
+
+    @Test
+    public void favoritFoodFail(){
+        Person person = new Person();
+        HypercaloricDiet h1 = new HypercaloricDiet(80);
+        DietManager d1 = new DietManager();
+
+        d1.areCompatible(person, h1);
+    }
 
     @Test
     public void lowWeightPass(){
@@ -174,14 +201,15 @@ public class DietTest {
     /************************ Requirements 4 ***************************/
 
 
+
     @Test
     public void randomPersonRandomDiet(){
         Person person = new Person();
-        VeganDiet veganDiet = new VeganDiet(80);
+        HypercaloricDiet h1 = new HypercaloricDiet(80);
         DietManager dietManager = new DietManager();
 
 
-        boolean res = dietManager.areCompatible(person, veganDiet);
+        boolean res = dietManager.areCompatible(person, h1);
         if (!res)
             throw new IllegalArgumentException("This diet is not compatible to this person.");
     }
