@@ -14,24 +14,10 @@ public class VeganDiet extends Diet {
     }
 
 
-    @Override
-    void Diet() {
-        daysDuration = 200;
-        purpose = "weight lost";
-        allowedFood = new Food[]{
-                new Food("Tofu", 150, false, FoodType.Protein),
-                new Food("Salad", 200, true, FoodType.Recipe),
-                new Food("Rice", 300, true, FoodType.Carb),
-                new Food("Lentils", 120, true, FoodType.Protein),
-                new Food("Bread", 80, true, FoodType.Carb),
-                new Food("Nuts",22, true, FoodType.Carb)
-        };
-        isVegan = true;
-    }
 
-    public VeganDiet(){
+    public VeganDiet(float checkWeight){
             daysDuration = 200;
-            purpose = "weight lost";
+            purpose = "Not Eating meat.";
             allowedFood = new Food[]{
                     new Food("Tofu", 150, true, FoodType.Protein),
                     new Food("Salad", 200, true, FoodType.Recipe),
@@ -41,6 +27,7 @@ public class VeganDiet extends Diet {
                     new Food("Nuts",22, true, FoodType.Carb)
             };
             isVegan = true;
+            minweightkg(checkWeight);
     }
 
     public VeganDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight){
