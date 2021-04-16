@@ -7,28 +7,30 @@ import java.util.Random;
 public class DietManager {
 
 
-    public boolean areCompatible(Person person, Diet diet){
+    public boolean areCompatible(Person person, Diet diet) {
 
         int count = 0;
 
-        for (Food f: person.allergies) {
-            for (Food food: diet.allowedFood) {
-                if (f.name == food.name){
+        for (Food f : person.allergies) {
+            for (Food food : diet.allowedFood) {
+                if (f.name == food.name) {
                     count++;
                 }
             }
 
         }
-        int dividedAllFoodLen = diet.allowedFood.length/2;
-        if (count >= dividedAllFoodLen){
+        int dividedAllFoodLen = diet.allowedFood.length / 2;
+        if (count >= dividedAllFoodLen) {
             return false;
-        }else {
-            return true;
+        } else if (person.favoriteFood.isVegan != true) {
+            if (diet.isVegan == true) {
+                throw new IllegalArgumentException(" This person can not go on a vegan diet");
+            }
+
         }
-
-
-
+        return true;
     }
+
 
     public void HypercaloricDiet(Person person, Food[] food) {
 

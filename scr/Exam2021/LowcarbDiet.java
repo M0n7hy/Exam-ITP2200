@@ -34,4 +34,14 @@ public class LowcarbDiet extends Diet {
         isVegan = false;
         minWeight(checkWeight);
     }
+    public LowcarbDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight){
+        this.daysDuration = daysD;
+        this.purpose = purpose;
+        this.allowedFood = allowedFood;
+        this.isVegan = isVegan;
+        minWeight(checkWeight);
+    }
+
+
+
 }

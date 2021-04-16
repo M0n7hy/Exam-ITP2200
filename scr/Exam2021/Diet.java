@@ -20,8 +20,6 @@ abstract class Diet {
 
 
 
-    //abstract void Diet();
-
 
 
 //3.a.Write the duration of a diet in terms of years, months and days, e.g., “This VeganDiet lasts for 2 years, 3 months and 5 days”.
@@ -53,6 +51,7 @@ abstract class Diet {
 
         }
     }
+
 
 
     public void isVeganIsNotVegan(){
