@@ -20,6 +20,11 @@ abstract class Diet {
 
 
 
+    //abstract void Diet();
+
+
+
+//3.a.Write the duration of a diet in terms of years, months and days, e.g., “This VeganDiet lasts for 2 years, 3 months and 5 days”.
     public String writeDuraton(){
         String Result = getName() + " lasts for " + getEndDate().yearSince(getStartDate())+ " years, " + getEndDate().monthSince(getStartDate())+ " months and "
                 + dayDiff(getStartDate(), getEndDate()) +" days.";
@@ -86,19 +91,25 @@ abstract class Diet {
         }
     }
     public void noMoreThenTwoCarb(){
+        ArrayList<String> carbArray = new ArrayList<>();
+        carbArray.add("Rice");
+        carbArray.add("Bread");
+        carbArray.add("Pasta");
+        carbArray.add("Suger");
+        carbArray.add("Potato");
+
 
         int count = 0;
-        for (int i = 0; i < allowedFood.length; i++) {
-            if (allowedFood[i].type.Carb == FoodType.Carb){
-                count ++;
+        for (Food f: allowedFood){
+            for (String s: carbArray){
+                if (f.name.equals(s)){
+                    count++;
+                }
             }
         }
-        if (count > 2){
-            throw new IllegalArgumentException("Can not be more then 2 Carb types in the LowCarbDiet");
+        if(count > 2){
+            throw new IllegalArgumentException("There can only be 2 carb types inn the LowCarbDiet.");
         }
-    }
-
-    public void favorittFood(){
 
     }
 
