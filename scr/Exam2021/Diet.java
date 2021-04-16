@@ -74,9 +74,10 @@ abstract class Diet {
 
 
     public void noMoreThenTwoCarb(){
+
         int count = 0;
         for (int i = 0; i < allowedFood.length; i++) {
-            if (allowedFood[i].type.Carb == FoodType.Carb){
+            if (allowedFood[i].type == FoodType.Carb){
                 count++;
             }
         }
