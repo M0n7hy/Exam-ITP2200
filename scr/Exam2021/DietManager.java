@@ -6,11 +6,8 @@ import java.util.Random;
 
 public class DietManager {
 
-    public boolean areCompatible(Person person, Diet diet){
-        return false;
-    }
 
-    /*public boolean areCompatible(Person person, Diet diet){
+    public boolean areCompatible(Person person, Diet diet){
 
         int count = 0;
 
@@ -28,7 +25,10 @@ public class DietManager {
         }else {
             return true;
         }
-    }*/
+
+
+
+    }
 
     public void HypercaloricDiet(Person person, Food[] food) {
 
@@ -46,7 +46,7 @@ public class DietManager {
         float res3 = (int) (random.nextInt((int) (max3 - min3)) + min3);
 
 
-        HypercaloricDiet randomDiet = new HypercaloricDiet();
+        HypercaloricDiet randomDiet = new HypercaloricDiet(80);
         randomDiet.daysDuration = res1;
         randomDiet.purpose = "Random Diet";
         randomDiet.allowedFood = food;
@@ -83,7 +83,7 @@ public class DietManager {
 
 
 
-        HypercaloricDiet tmpRandomDiet = new HypercaloricDiet();
+        HypercaloricDiet tmpRandomDiet = new HypercaloricDiet(80);
 
         tmpRandomDiet.allowedFood = new Food[]{
                 new Food("Cod", 82, false, FoodType.Protein),
