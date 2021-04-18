@@ -42,7 +42,7 @@ abstract class Diet {
 
         for (Food food : allowedFood) {
             if (!food.isVegan) {
-                throw new IllegalArgumentException("There is food inn this diet that is not vegan.");
+                throw new IllegalArgumentException("There is food in this diet that is not vegan.");
             }
 
         }
@@ -68,7 +68,7 @@ abstract class Diet {
     }
 
 
-    public void noMoreThenTwoCarb(){
+    public boolean noMoreThenTwoCarb(){
 
         int count = 0;
         for (Food food : allowedFood) {
@@ -77,8 +77,9 @@ abstract class Diet {
             }
         }
         if (count > 2){
-            throw new IllegalArgumentException("There cant be more then 2 Carb types in LowCarbDiet.");
+            throw new IllegalArgumentException("There can't be more then 2 Carb types in LowCarbDiet.");
         }
+        return true;
     }
 
 

@@ -24,7 +24,7 @@ public class DietManager {
             return false;
         } else if (person.favoriteFood.isVegan != true) {
             if (diet.isVegan == true) {
-                throw new IllegalArgumentException(" This person can not go on a vegan diet");
+                throw new IllegalArgumentException("This person can not go on a vegan diet");
             }
 
         }
