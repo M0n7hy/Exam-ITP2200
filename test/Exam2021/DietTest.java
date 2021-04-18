@@ -37,7 +37,7 @@ public class DietTest {
     /*Requirement 1.B pass*/
 
     @Test
-    public void isVeganIsNotVegan2Pass(){
+    public void isVeganIsNotVeganTwoPass(){
         VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},true ,88);
         vegan.isVeganIsNotVegan();
 
@@ -45,7 +45,7 @@ public class DietTest {
 
     /*Requirement 1.B Fail (Throw a exception)*/
     @Test
-    public void isVeganIsNotVegan2Fail(){
+    public void isVeganIsNotVeganTwoFail(){
         VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},false ,88);
         vegan.isVeganIsNotVegan();
 
@@ -140,51 +140,9 @@ public class DietTest {
         d1.areCompatible(person, v1);
     }
 
-    /*Requirement 1.E Fail (Throw a exception)*/
+    /*Requirement 2.B Pass*/
     @Test
-    public void lowWeightPass(){
-        LowcarbDiet l1 = new LowcarbDiet(60);
-        VeganDiet v1 = new VeganDiet(60);
-
-        assertTrue(l1.minWeight(60));
-        assertTrue(v1.minweightkg(60));
-
-    }
-
-    @Test
-    public void lowWeightFail(){
-        LowcarbDiet lowCarb = new LowcarbDiet(40);
-            assertTrue(lowCarb.minWeight(40));
-
-    }
-    @Test
-    public void lowWeightFail2(){
-        VeganDiet v1 = new VeganDiet(40);
-
-    }
-
-
-    @Test
-    public void overWeightPass(){
-        HypercaloricDiet h1 = new HypercaloricDiet(149);
-    }
-
-    @Test
-    public void overWeightFail(){
-        try {
-            HypercaloricDiet h1 = new HypercaloricDiet(160);
-        } catch (IllegalArgumentException exception) {
-            assertEquals("This person is too overweight to go on this diet", exception.getMessage());
-        }
-    }
-
-
-
-
-    /**************** This is a passing test  ******************/
-
-    @Test
-    public void allergicToo50Pass(){
+    public void allergicPass(){
         Person person = new Person(new Food("Ice cream", 220, false, FoodType.Fat),
                 new Food[]{
                         new Food("Peanut", 90, true, FoodType.Carb),
@@ -208,10 +166,10 @@ public class DietTest {
 
     }
 
-    /******************* This test throws a exception ***************************/
+    /*Requirement 2.B Fail (Throw a exception)*/
 
     @Test
-    public void allergicToo50fail(){
+    public void allergicFail(){
         Person person = new Person(
                 new Food("Ice cream", 220, false, FoodType.Fat),
                 new Food[]{
@@ -232,9 +190,52 @@ public class DietTest {
             }
         }catch (IllegalArgumentException ex) {
             assertEquals("This diet is not compatible to this person.", ex.getMessage());
+            System.out.println(ex.getMessage());
         }
 
     }
+
+    /*Requirement 2.C Pass*/
+    @Test
+    public void lowWeightPass(){
+        LowcarbDiet l1 = new LowcarbDiet(60);
+        VeganDiet v1 = new VeganDiet(60);
+
+        assertTrue(l1.minWeight(60));
+        assertTrue(v1.minweightkg(60));
+
+    }
+
+    /*Requirement 2.C Fail (Throw a exception)*/
+    @Test
+    public void lowWeightFail(){
+        LowcarbDiet lowCarb = new LowcarbDiet(40);
+            assertTrue(lowCarb.minWeight(40));
+
+    }
+    /*Requirement 2.C Fail (Throw a exception)*/
+    @Test
+    public void lowWeightFail2(){
+        VeganDiet v1 = new VeganDiet(40);
+
+    }
+
+    /*Requirement 2.D Pass*/
+    @Test
+    public void overWeightPass(){
+        HypercaloricDiet h1 = new HypercaloricDiet(149);
+    }
+
+    /*Requirement 2.D Fail (Throw a exception)*/
+    @Test
+    public void overWeightFail(){
+        try {
+            HypercaloricDiet h1 = new HypercaloricDiet(160);
+        } catch (IllegalArgumentException exception) {
+            assertEquals("This person is too overweight to go on this diet", exception.getMessage());
+        }
+    }
+
 
 
 
