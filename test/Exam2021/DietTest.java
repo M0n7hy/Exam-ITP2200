@@ -2,8 +2,7 @@ package Exam2021;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class DietTest {
 
@@ -16,7 +15,12 @@ public class DietTest {
     /*Requirement 1.A pass*/
     @Test
     public void isVeganIsNotVeganPass(){
-        FlexitarianDiet F1 = new FlexitarianDiet();
+        FlexitarianDiet F1 = new FlexitarianDiet(2, "Loss weight", new Food[]{
+                new Food("Almond", 90, true, FoodType.Fat),
+                new Food("Milk", 80, false, FoodType.Fat),
+                new Food("Oat milk", 44, true, FoodType.Fat),
+                new Food("Seaweed", 20, true, FoodType.Protein),
+                new Food("peanut", 140, true, FoodType.Fat)}, false, 400, new Food("Pig", 200, false, FoodType.Protein));
         F1.isVeganIsNotVegan();
     }
 
@@ -46,8 +50,6 @@ public class DietTest {
     }
 
 
-
-
     /*Requirement 1.C pass*/
     @Test
     public void isVeganPass(){
@@ -74,19 +76,21 @@ public class DietTest {
 
     }
 
-
-
-    /*Requirement 1.E Fail (Throw a exception)*/
+    /*Requirement 1.D Pass*/
     @Test
-    public void onlyTwoCarbFail(){
-        LowcarbDiet L1 = new LowcarbDiet(200, "Lose weight",
-                new Food[]
-                        {new Food("Pasta", 150, true, FoodType.Carb),
-                        new Food("Bread", 200, true, FoodType.Carb),
-                        new Food("Rice", 300, true, FoodType.Carb)}, false, 80);
-
-        L1.noMoreThenTwoCarb();
+    public void preferMeatInFlexPass(){
+        FlexitarianDiet f1 = new FlexitarianDiet(500, new Food("Ham", 200, false, FoodType.Protein));
+        assertTrue(true);
     }
+
+    /*Requirement 1.D Fail*/
+
+    @Test
+    public void preferMeatInFlexFail() {
+        FlexitarianDiet f1 = new FlexitarianDiet(500, new Food("Salad", 200, true, FoodType.Recipe));
+        assertTrue(false);
+    }
+
 
     /*Requirement 1.E Pass*/
 
@@ -96,10 +100,22 @@ public class DietTest {
         L1.noMoreThenTwoCarb();
     }
 
+    /*Requirement 1.E Fail (Throw a exception)*/
+    @Test
+    public void onlyTwoCarbFail(){
+        LowcarbDiet L1 = new LowcarbDiet(200, "Lose weight",
+                new Food[]
+                        {new Food("Pasta", 150, true, FoodType.Carb),
+                                new Food("Bread", 200, true, FoodType.Carb),
+                                new Food("Rice", 300, true, FoodType.Carb)}, false, 80);
+
+        L1.noMoreThenTwoCarb();
+    }
 
 
     /**************************** Requirements 2 *******************************/
 
+    /*Requirement 1.E Fail (Throw a exception)*/
     @Test
     public void favoriteFoodPass(){
         Person person = new Person(new Food("Seaweed", 306, true, FoodType.Carb),
@@ -109,19 +125,20 @@ public class DietTest {
                         new Food("Lentils", 120, true, FoodType.Protein)}, 80.0f);
         VeganDiet v1 = new VeganDiet(80);
         DietManager d1 = new DietManager();
-        d1.areCompatible(person, v1);
+        assertTrue(d1.areCompatible(person, v1));
     }
 
-
+    /*Requirement 1.E Fail (Throw a exception)*/
     @Test
     public void favoriteFoodFail(){
         Person person = new Person();
-        HypercaloricDiet h1 = new HypercaloricDiet(80);
+        VeganDiet v1 = new VeganDiet(60);
         DietManager d1 = new DietManager();
 
-        d1.areCompatible(person, h1);
+       d1.areCompatible(person, v1);
     }
 
+    /*Requirement 1.E Fail (Throw a exception)*/
     @Test
     public void lowWeightPass(){
         LowcarbDiet l1 = new LowcarbDiet(60);
@@ -162,10 +179,14 @@ public class DietTest {
     @Test
     public void allergicToo50Pass(){
         Person person = new Person(
-                new Food("Ice cream", 220, false, FoodType.Fat), new Food[]{new Food("Peanut", 90, true, FoodType.Carb), new Food("Cheese", 40, false, FoodType.Fat)}, 88.8f);
+                new Food("Ice cream", 220, false, FoodType.Fat), new Food[]{
+                        new Food("Peanut", 90, true, FoodType.Carb),
+                new Food("Cheese", 40, false, FoodType.Fat)}, 88.8f);
         FlexitarianDiet f1 = new FlexitarianDiet(90, "Eat less meat",
-                new Food[]{new Food("Almonds", 90, true, FoodType.Carb),new Food("Milk", 40, false, FoodType.Fat) },
-                false, 300.90f, new Food("Salmon", 190, false, FoodType.Protein));
+                new Food[]{
+                        new Food("Almonds", 90, true, FoodType.Carb),
+                        new Food("Milk", 40, false, FoodType.Fat) }, false,
+                300.90f, new Food("Salmon", 190, false, FoodType.Protein));
         DietManager dietManager = new DietManager();
 
         boolean res = dietManager.areCompatible(person, f1);
@@ -173,7 +194,7 @@ public class DietTest {
         if (res){
             assertTrue(dietManager.areCompatible(person, f1));
         } else {
-            throw new IllegalArgumentException("This diet is not compatible to this person.");
+            throw new IllegalArgumentException("This person is allergic to 50% or more of this diet");
         }
 
 
@@ -186,8 +207,9 @@ public class DietTest {
         Person person = new Person(
                 new Food("Ice cream", 220, false, FoodType.Fat), new Food[]{new Food("Almonds", 90, true, FoodType.Carb), new Food("Milk", 40, false, FoodType.Fat)}, 88.8f);
         FlexitarianDiet f1 = new FlexitarianDiet(90, "Eat less meat",
-                new Food[]{new Food("Almonds", 90, true, FoodType.Carb),new Food("Milk", 40, false, FoodType.Fat) },
-                false, 300.90f, new Food("Salmon", 190, false, FoodType.Protein) );
+                new Food[]{new Food("Almonds", 90, true, FoodType.Carb),
+                        new Food("Milk", 40, false, FoodType.Fat) }, false,
+                300.90f, new Food("Salmon", 190, false, FoodType.Protein) );
         DietManager dietManager = new DietManager();
 
         boolean res = dietManager.areCompatible(person, f1);
@@ -195,7 +217,7 @@ public class DietTest {
         if (res){
             assertTrue(dietManager.areCompatible(person, f1) );
         } else {
-            throw new IllegalArgumentException("This diet is not compatible to this person.");
+            throw new IllegalArgumentException("This person is allergic to 50% or more of this diet");
         }
     }
 
