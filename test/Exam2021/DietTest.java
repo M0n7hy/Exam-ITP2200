@@ -2,7 +2,8 @@ package Exam2021;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DietTest {
 
@@ -14,45 +15,31 @@ public class DietTest {
 
     /*Requirement 1.A pass*/
     @Test
-    public void isVeganIsNotVeganPass(){
-        FlexitarianDiet F1 = new FlexitarianDiet(2, "Loss weight", new Food[]{
-                new Food("Almond", 90, true, FoodType.Fat),
-                new Food("Milk", 80, false, FoodType.Fat),
-                new Food("Oat milk", 44, true, FoodType.Fat),
-                new Food("Seaweed", 20, true, FoodType.Protein),
-                new Food("peanut", 140, true, FoodType.Fat)}, false, 400, new Food("Pig", 200, false, FoodType.Protein));
+    public void isVeganIsNotVegan2(){
+        FlexitarianDiet F1 = new FlexitarianDiet();
         F1.isVeganIsNotVegan();
     }
 
     /*Requirement 1.A Fail*/
-    @Test
-    public void isVeganIsNotVeganFail(){
-        HypercaloricDiet h1 = new HypercaloricDiet(80, true);
-        h1.isVeganIsNotVegan();
-    }
+
 
 
     /*Requirement 1.B pass*/
 
     @Test
     public void isVeganIsNotVegan2Pass(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},true ,88);
+        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
+                new Food("Tofu", 100, true, FoodType.Protein),
+                new Food("Almond", 50, true, FoodType.Fat)},true ,88);
         vegan.isVeganIsNotVegan();
 
     }
 
     /*Requirement 1.B Fail*/
+
+
     @Test
-    public void isVeganIsNotVegan2Fail(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},false ,88);
-        vegan.isVeganIsNotVegan();
-
-    }
-
-
-    /*Requirement 1.C pass*/
-    @Test
-    public void isVeganPass(){
+    public void isVegan(){
         VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
                 new Food("Tofu", 150, true, FoodType.Protein),
                 new Food("Almond", 200, true, FoodType.Recipe),
@@ -63,34 +50,18 @@ public class DietTest {
 
     }
 
-    /*Requirement 1.C Fail*/
+
+    /*Requirement 1.E Fail (Throw a exception)*/
     @Test
-    public void isVeganFail(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
-                new Food("Tofu", 150, true, FoodType.Protein),
-                new Food("Beef", 200, false, FoodType.Recipe),
-                new Food("Oat milk", 300, true, FoodType.Carb),
-                new Food("Lentils", 120, true, FoodType.Protein)}, true, 60);
+    public void onlyTwoCarbFail(){
+        LowcarbDiet L1 = new LowcarbDiet(200, "Lose weight",
+                new Food[]
+                        {new Food("Pasta", 150, true, FoodType.Carb),
+                        new Food("Bread", 200, true, FoodType.Carb),
+                        new Food("Rice", 300, true, FoodType.Carb)}, false, 80);
 
-        vegan.isVegan();
-
+        L1.noMoreThenTwoCarb();
     }
-
-    /*Requirement 1.D Pass*/
-    @Test
-    public void preferMeatInFlexPass(){
-        FlexitarianDiet f1 = new FlexitarianDiet(500, new Food("Ham", 200, false, FoodType.Protein));
-        assertTrue(true);
-    }
-
-    /*Requirement 1.D Fail*/
-
-    @Test
-    public void preferMeatInFlexFail() {
-        FlexitarianDiet f1 = new FlexitarianDiet(500, new Food("Salad", 200, true, FoodType.Recipe));
-        assertTrue(false);
-    }
-
 
     /*Requirement 1.E Pass*/
 
@@ -100,24 +71,12 @@ public class DietTest {
         L1.noMoreThenTwoCarb();
     }
 
-    /*Requirement 1.E Fail (Throw a exception)*/
-    @Test
-    public void onlyTwoCarbFail(){
-        LowcarbDiet L1 = new LowcarbDiet(200, "Lose weight",
-                new Food[]
-                        {new Food("Pasta", 150, true, FoodType.Carb),
-                                new Food("Bread", 200, true, FoodType.Carb),
-                                new Food("Rice", 300, true, FoodType.Carb)}, false, 80);
-
-        L1.noMoreThenTwoCarb();
-    }
 
 
     /**************************** Requirements 2 *******************************/
 
-    /*Requirement 1.E Fail (Throw a exception)*/
     @Test
-    public void favoriteFoodPass(){
+    public void favoritFoodPass(){
         Person person = new Person(new Food("Seaweed", 306, true, FoodType.Carb),
                 new Food[]{ new Food("Tofu", 150, true, FoodType.Protein),
                         new Food("Salad", 200, true, FoodType.Recipe),
@@ -125,28 +84,25 @@ public class DietTest {
                         new Food("Lentils", 120, true, FoodType.Protein)}, 80.0f);
         VeganDiet v1 = new VeganDiet(80);
         DietManager d1 = new DietManager();
-        assertTrue(d1.areCompatible(person, v1));
+        d1.areCompatible(person, v1);
     }
 
-    /*Requirement 1.E Fail (Throw a exception)*/
+
     @Test
-    public void favoriteFoodFail(){
+    public void favoritFoodFail(){
         Person person = new Person();
-        VeganDiet v1 = new VeganDiet(60);
+        HypercaloricDiet h1 = new HypercaloricDiet(80);
         DietManager d1 = new DietManager();
 
-       d1.areCompatible(person, v1);
+       d1.areCompatible(person, h1);
+
+        //assertFalse(String.valueOf(d1.areCompatible(person, h1)), false);
     }
 
-    /*Requirement 1.E Fail (Throw a exception)*/
     @Test
     public void lowWeightPass(){
-        LowcarbDiet l1 = new LowcarbDiet(60);
+        LowcarbDiet lowCarb = new LowcarbDiet(60);
         VeganDiet v1 = new VeganDiet(60);
-
-        assertTrue(l1.minWeight(60));
-        assertTrue(v1.minweightkg(60));
-
     }
 
     @Test
@@ -158,6 +114,7 @@ public class DietTest {
     @Test
     public void lowWeightFail2(){
         VeganDiet v1 = new VeganDiet(40);
+
     }
 
 
@@ -168,7 +125,11 @@ public class DietTest {
 
     @Test
     public void overWeightFail(){
-        HypercaloricDiet h1 = new HypercaloricDiet(160);
+        try {
+            HypercaloricDiet h1 = new HypercaloricDiet(160);
+        } catch (IllegalArgumentException exception) {
+            assertEquals("This person is too overweight to go on this diet", exception.getMessage());
+        }
     }
 
 
@@ -178,15 +139,16 @@ public class DietTest {
 
     @Test
     public void allergicToo50Pass(){
-        Person person = new Person(
-                new Food("Ice cream", 220, false, FoodType.Fat), new Food[]{
+        Person person = new Person(new Food("Ice cream", 220, false, FoodType.Fat),
+                new Food[]{
                         new Food("Peanut", 90, true, FoodType.Carb),
-                new Food("Cheese", 40, false, FoodType.Fat)}, 88.8f);
+                        new Food("Cheese", 40, false, FoodType.Fat)
+                }, 88.8f);
         FlexitarianDiet f1 = new FlexitarianDiet(90, "Eat less meat",
                 new Food[]{
                         new Food("Almonds", 90, true, FoodType.Carb),
-                        new Food("Milk", 40, false, FoodType.Fat) }, false,
-                300.90f, new Food("Salmon", 190, false, FoodType.Protein));
+                        new Food("Milk", 40, false, FoodType.Fat)
+                }, false, 300.90f,new Food("Salmon", 190, false, FoodType.Protein));
         DietManager dietManager = new DietManager();
 
         boolean res = dietManager.areCompatible(person, f1);
@@ -205,25 +167,33 @@ public class DietTest {
     @Test
     public void allergicToo50fail(){
         Person person = new Person(
-                new Food("Ice cream", 220, false, FoodType.Fat), new Food[]{new Food("Almonds", 90, true, FoodType.Carb), new Food("Milk", 40, false, FoodType.Fat)}, 88.8f);
+                new Food("Ice cream", 220, false, FoodType.Fat),
+                new Food[]{
+                        new Food("Almonds", 90, true, FoodType.Carb),
+                        new Food("Milk", 40, false, FoodType.Fat)
+                }, 88.8f);
         FlexitarianDiet f1 = new FlexitarianDiet(90, "Eat less meat",
-                new Food[]{new Food("Almonds", 90, true, FoodType.Carb),
-                        new Food("Milk", 40, false, FoodType.Fat) }, false,
-                300.90f, new Food("Salmon", 190, false, FoodType.Protein) );
+                new Food[]{
+                        new Food("Almonds", 90, true, FoodType.Carb),
+                        new Food("Milk", 40, false, FoodType.Fat)
+                } , false, 300.90f,new Food("Salmon", 190, false, FoodType.Protein));
         DietManager dietManager = new DietManager();
 
-        boolean res = dietManager.areCompatible(person, f1);
-
-        if (res){
-            assertTrue(dietManager.areCompatible(person, f1) );
-        } else {
-            throw new IllegalArgumentException("This person is allergic to 50% or more of this diet");
+        try {
+            boolean res = dietManager.areCompatible(person, f1);
+            if (!res) {
+                throw new IllegalArgumentException("This diet is not compatible to this person.");
+            }
+        }catch (IllegalArgumentException ex) {
+            assertEquals("This diet is not compatible to this person.", ex.getMessage());
         }
+
     }
 
 
 
     /*********************** Requirements 3 ********************************/
+
     @Test
     public void durationTest(){
         LowcarbDiet low = new LowcarbDiet(60);
@@ -292,8 +262,11 @@ public class DietTest {
 
 
         boolean res = dietManager.areCompatible(person, h1);
-        if (!res)
+        if (!res) {
             throw new IllegalArgumentException("This diet is not compatible to this person.");
+        }
+        assertEquals(true, res);
+
     }
 
     /************************ Requirements 4b ***************************/

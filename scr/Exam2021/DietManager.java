@@ -71,6 +71,11 @@ public class DietManager {
 
 
         //iv.isVegan: false if there is some non-vegan Food, true otherwise.
+        Boolean isVegan = Boolean.valueOf("");
+        for (int i = 0; i < tmpRandomDiet.allowedFood.length; i++) {
+            isVegan = tmpRandomDiet.allowedFood[i].isVegan;
+        }
+
 
         //maxWeightKg: random number between Person.weight and Person.weight + 20.
         float min3 = person.getWeight();
@@ -90,7 +95,7 @@ public class DietManager {
         System.out.println("Diets duration: " + res1 + " days" + '\n');
         System.out.println("Diets purpose: " + tmpRandomDiet.purpose + '\n');
         System.out.println("Food list: \n" + foods);
-        System.out.println("Diet is: " + tmpRandomDiet.isVegan + '\n');
+        System.out.println("Diet is: " + isVegan + '\n');
         System.out.println("The max weight of the participant: " + res3 + "kg" + '\n');
         System.out.println("Minimum calories per day: " + res2 + " kcal");
 

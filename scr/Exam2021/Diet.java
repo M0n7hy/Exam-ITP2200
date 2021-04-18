@@ -1,9 +1,5 @@
 package Exam2021;
 
-import javax.print.DocFlavor;
-
-import java.util.ArrayList;
-
 import static Exam2021.Date.dayDiff;
 
 abstract class Diet {
