@@ -3,6 +3,7 @@ package Exam2021;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DietTest {
 
@@ -236,7 +237,9 @@ public class DietTest {
         };
         DietManager newdiet = new DietManager();
 
-        newdiet.randomDiet(person, food);
+
+
+        assertTrue(String.valueOf(newdiet.randomDiet(person, food)), true);
     }
 
 
