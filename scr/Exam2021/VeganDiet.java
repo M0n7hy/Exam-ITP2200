@@ -4,10 +4,10 @@ public class VeganDiet extends Diet {
 
     Float minWeightKg;
 
-    public void minweightkg(float personsWeight){
+    public boolean minweightkg(float personsWeight){
             this.minWeightKg = personsWeight;
             if (personsWeight > 50){
-              return;
+              return true;
             } else {
                 throw new IllegalArgumentException("This person is too underweight to go on this diet");
             }
