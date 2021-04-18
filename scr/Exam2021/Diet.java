@@ -44,8 +44,8 @@ abstract class Diet {
 
     public void isVegan() {
 
-        for (int i = 0; i < allowedFood.length; i++) {
-            if ( !allowedFood[i].isVegan){
+        for (Food food : allowedFood) {
+            if (!food.isVegan) {
                 throw new IllegalArgumentException("This food is not vegan.");
             }
 
@@ -53,20 +53,20 @@ abstract class Diet {
     }
 
 
-
     public void isVeganIsNotVegan(){
 
         int number = 0;
         int count = 0;
-        for (int i = 0; i < allowedFood.length; i++ ){
-            if(allowedFood[i].isVegan != true){
-              count++;
-            }else if(allowedFood[i].isVegan == true){
+        for (Food food : allowedFood) {
+            if (!food.isVegan) {
+                count++;
+            } else {
                 number++;
             }
-        } if(count > 0 && isVegan == true){
+        }
+        if(count > 0 && isVegan){
             throw new IllegalArgumentException("This is not a vegan diet.");
-        }else if(number == allowedFood.length && isVegan == false){
+        }else if(number == allowedFood.length && !isVegan){
             throw new IllegalArgumentException("This is a vegan Diet!");
         }
     }
@@ -75,8 +75,8 @@ abstract class Diet {
     public void noMoreThenTwoCarb(){
 
         int count = 0;
-        for (int i = 0; i < allowedFood.length; i++) {
-            if (allowedFood[i].type == FoodType.Carb){
+        for (Food food : allowedFood) {
+            if (food.type == FoodType.Carb) {
                 count++;
             }
         }
