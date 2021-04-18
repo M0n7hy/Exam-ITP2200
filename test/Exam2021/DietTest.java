@@ -215,7 +215,7 @@ public class DietTest {
 
 
     @Test
-    public void randomPersonRandomDiet(){
+    public void randomPersonRandomDietTest(){
         Person person = new Person();
         HypercaloricDiet h1 = new HypercaloricDiet(80);
         DietManager dietManager = new DietManager();
@@ -228,62 +228,20 @@ public class DietTest {
 
     /************************ Requirements 4b ***************************/
 
-    //Må forandres på.
     @Test
-    public void hypercaloricDiet() {
+    public void personAndListOfFoodTest(){
         Person person = new Person();
-        HypercaloricDiet hyper = new HypercaloricDiet(60);
-        DietManager manager = new DietManager();
-        Food[] food;
-        food = new Food[]{
-                new Food("Rice", 130, true, FoodType.Carb),
-                new Food("Salad", 200, true, FoodType.Recipe)
+        Food[] food = new Food[]{
+                new Food()
         };
-
-
-        hyper.daysDuration = 60;
-        hyper.purpose = "Test";
-
-        hyper = manager.randomDiet(person, food);
-
-
-        //isVegan: false if there is some non-vegan Food, true otherwise.
-        //assertEquals(false, hyper.getIsVegan());
-
-    }
-
-
-    @Test
-    public void test4B(){
-        Person person = new Person();
-        Food[] food = new Food[]{new Food()};
         DietManager newdiet = new DietManager();
 
         newdiet.randomDiet(person, food);
-
     }
 
 
 
     /**************************Tests********************************************/
-
-    /*
-    @Test
-    public void test(){
-     HypercaloricDiet hey = new HypercaloricDiet(80);
-     hey.isVegan();
-    }
-
-    @Test
-    public void reqb() {
-        DietManager testmanager = new DietManager();
-
-    }
-
-
-
-     */
-
 
 
 }
