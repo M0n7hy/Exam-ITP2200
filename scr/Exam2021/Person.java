@@ -10,7 +10,8 @@ public class Person {
 
     public Person() {
         favoriteFood = new Food("Salmon", 190, false, FoodType.Protein);
-        allergies = new Food[]{new Food("Almond", 90, true, FoodType.Fat),
+        allergies = new Food[]{
+                new Food("Almond", 90, true, FoodType.Fat),
                 new Food("Milk", 80, false, FoodType.Fat),
                 new Food("Oat milk", 44, true, FoodType.Fat),
                 new Food("Seaweed",20 ,true,FoodType.Protein),
