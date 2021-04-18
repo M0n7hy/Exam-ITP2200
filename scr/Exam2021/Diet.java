@@ -46,7 +46,7 @@ abstract class Diet {
 
         for (Food food : allowedFood) {
             if (!food.isVegan) {
-                throw new IllegalArgumentException("This food is not vegan.");
+                throw new IllegalArgumentException("There is food inn this diet that is not vegan.");
             }
 
         }
@@ -65,7 +65,7 @@ abstract class Diet {
             }
         }
         if(count > 0 && isVegan){
-            throw new IllegalArgumentException("This is not a vegan diet.");
+            throw new IllegalArgumentException("This diet can not be considered vegan.");
         }else if(number == allowedFood.length && !isVegan){
             throw new IllegalArgumentException("This is a vegan Diet!");
         }

@@ -35,13 +35,15 @@ public class FlexitarianDiet extends Diet {
 
         };
         isVegan = false;
+        giveMeatAndGrams(150.90f, new Food("Chicken", 400, false, FoodType.Protein));
     }
 
-    public FlexitarianDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan){
+    public FlexitarianDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float maxMeatGramsPerWeek, Food preferredMeat){
         this.daysDuration = daysD;
         this.purpose = purpose;
         this.allowedFood = allowedFood;
         this.isVegan = isVegan;
+        giveMeatAndGrams(maxMeatGramsPerWeek, preferredMeat);
     }
 
 }

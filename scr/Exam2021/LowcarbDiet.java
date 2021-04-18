@@ -5,10 +5,10 @@ public class LowcarbDiet extends Diet {
 
     float minWeightKg;  //se på det senere.
 
-    public void minWeight(float personWeight){
+    public boolean minWeight(float personWeight){
         this.minWeightKg = personWeight;
         if (personWeight > 50){
-            return;
+            return true;
         } else{
             throw new IllegalArgumentException("This person is too underweight to go on this diet.");
         }
