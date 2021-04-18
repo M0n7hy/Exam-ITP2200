@@ -266,6 +266,7 @@ public class DietTest {
             throw new IllegalArgumentException("This diet is not compatible to this person.");
         }
         assertEquals(true, res);
+
     }
 
     /************************ Requirements 4b ***************************/
