@@ -1,5 +1,7 @@
 package Exam2021;
 
+import java.util.Arrays;
+
 public class HypercaloricDiet extends Diet {
 
     float maxWeighKg;
@@ -22,7 +24,7 @@ public class HypercaloricDiet extends Diet {
         daysDuration = 388;
         purpose = "max calories(mostly for pro's)";
         allowedFood = new Food[]{
-                new Food("Chicken", 150, false, FoodType.Protein),
+                new Food("Chicken", 239, false, FoodType.Protein),
                 new Food("Salad", 200, true, FoodType.Recipe),
                 new Food("Rice", 300, true, FoodType.Carb),
                 new Food("Salmon", 100, false, FoodType.Protein),
@@ -33,8 +35,7 @@ public class HypercaloricDiet extends Diet {
                 new Food("Milk", 54, false, FoodType.Fat),
                 new Food("Taco", 390, false, FoodType.Recipe)
         };
-        isVegan = true;
+        isVegan = false;
         maxWeight(checkWeight);
     }
-
 }
