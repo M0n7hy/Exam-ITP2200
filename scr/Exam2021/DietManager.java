@@ -8,7 +8,6 @@ public class DietManager {
 
 
     public boolean areCompatible(Person person, Diet diet) {
-
         int count = 0;
 
         for (Food f : person.allergies) {
@@ -17,7 +16,6 @@ public class DietManager {
                     count++;
                 }
             }
-
         }
         int dividedAllFoodLen = diet.allowedFood.length / 2;
         if (count >= dividedAllFoodLen) {
@@ -74,13 +72,13 @@ public class DietManager {
         }
 
 
-        //maxWeightKg: random number between Person.weight and Person.weight + 20.
+        //v.maxWeightKg: random number between Person.weight and Person.weight + 20.
         float min3 = person.getWeight();
         float max3 = person.getWeight() + 20;
         float res3 = (int) (random.nextInt((int) (max3 - min3)) + min3);
         tmpRandomDiet.maxWeighKg = res3;
 
-        //minCaloriesPerDay: random number between 2000 and 4000.
+        //vi.minCaloriesPerDay: random number between 2000 and 4000.
         int min2 = 2000;
         int max2 = 4000;
         int res2 = random.nextInt(max2 - min2) + min2;
