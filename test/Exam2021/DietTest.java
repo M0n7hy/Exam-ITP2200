@@ -21,8 +21,18 @@ public class DietTest {
                 new Food("Milk", 80, false, FoodType.Fat),
                 new Food("Oat milk", 44, true, FoodType.Fat),
                 new Food("Seaweed", 20, true, FoodType.Protein),
-                new Food("peanut", 140, true, FoodType.Fat)}, false, 400, new Food("Pig", 200, false, FoodType.Protein));
-        F1.isVeganIsNotVegan();
+                new Food("peanut", 140, true, FoodType.Fat)
+        }, false, 400, new Food("Pig", 200, false, FoodType.Protein));
+
+        //F1.isVeganIsNotVegan();
+        try {
+            F1.isVeganIsNotVegan();
+        } catch (IllegalArgumentException ex) {
+            assertEquals("This diet can not be considered vegan.", ex.getMessage());
+            assertEquals("This is a vegan Diet!", ex.getMessage());
+            System.out.println(ex.getMessage() + '\n');
+        }
+
     }
 
     /*Requirement 1.A Fail (Throw a exception)*/
@@ -34,7 +44,7 @@ public class DietTest {
             h1.isVeganIsNotVegan();
         } catch (IllegalArgumentException ex) {
             assertEquals("This diet can not be considered vegan.", ex.getMessage());
-            System.out.println("Requirement 1.a " + ex.getMessage() + '\n');
+            System.out.println("Requirement 1.a(fail): " + ex.getMessage() + '\n');
         }
     }
 
@@ -43,8 +53,18 @@ public class DietTest {
 
     @Test
     public void isVeganIsNotVeganTwoPass(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},true ,88);
+        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
+                new Food("Tofu", 100, true, FoodType.Protein),
+                new Food("Almond", 50, true, FoodType.Fat)
+        },true ,88);
+
         vegan.isVeganIsNotVegan();
+        try {
+            vegan.isVeganIsNotVegan();
+        } catch (IllegalArgumentException ex) {
+            assertEquals("", ex.getMessage());
+            System.out.println("Requierment 1.b(pass): " + ex.getMessage() + '\n');
+        }
 
     }
 
@@ -57,7 +77,7 @@ public class DietTest {
             vegan.isVeganIsNotVegan();
         } catch (IllegalArgumentException ex) {
             assertEquals("This is a vegan Diet!", ex.getMessage());
-            System.out.println(ex.getMessage());
+            System.out.println("Requierment 1.b(fail): " + ex.getMessage() + '\n');
         }
     }
 
@@ -73,7 +93,7 @@ public class DietTest {
 
         vegan.isVegan();
         assertTrue(String.valueOf(vegan.isVegan), true);
-        System.out.println(vegan.isVegan);
+        System.out.println("Requirement 1.c(pass): " + vegan.isVegan + '\n');
 
     }
 
@@ -91,7 +111,7 @@ public class DietTest {
             vegan.isVegan();
         } catch (IllegalArgumentException ex) {
             assertEquals("There is food in this diet that is not vegan.", ex.getMessage());
-            System.out.println(ex.getMessage());
+            System.out.println("Requirement 1.c(fail): " + ex.getMessage() + '\n');
         }
     }
 
@@ -110,7 +130,7 @@ public class DietTest {
             FlexitarianDiet f1 = new FlexitarianDiet(500, new Food("Salad", 200, true, FoodType.Recipe));
         } catch (IllegalArgumentException ex) {
             assertEquals("Must be non-Vegan food", ex.getMessage());
-            System.out.println(ex.getMessage());
+            System.out.println("Requirement 1.d(fail): " + ex.getMessage() + '\n');
         }
     }
 
@@ -123,6 +143,7 @@ public class DietTest {
         L1.noMoreThenTwoCarb();
 
         assertTrue(String.valueOf(L1.noMoreThenTwoCarb()), true);
+        System.out.println("Requirement 1.e(pass): " + L1.noMoreThenTwoCarb() + '\n');
     }
 
     /*Requirement 1.E Fail (Throw a exception)*/
@@ -139,7 +160,7 @@ public class DietTest {
             L1.noMoreThenTwoCarb();
         } catch (IllegalArgumentException ex) {
             assertEquals("There can't be more then 2 Carb types in LowCarbDiet.", ex.getMessage());
-            System.out.println(ex.getMessage());
+            System.out.println("Requirement 1.e(fail): " + ex.getMessage() + '\n');
         }
     }
 
@@ -159,6 +180,7 @@ public class DietTest {
         VeganDiet v1 = new VeganDiet(80);
         DietManager d1 = new DietManager();
         assertTrue(d1.areCompatible(person, v1));
+        System.out.println("Requirement 2.a(pass): " + d1.areCompatible(person, v1) + '\n');
     }
 
     /*Requirement 2.A Fail (Throw a exception)*/
@@ -172,7 +194,7 @@ public class DietTest {
             d1.areCompatible(person, v1);
         } catch (IllegalArgumentException ex) {
             assertEquals("This person can not go on a vegan diet", ex.getMessage());
-            System.out.println(ex.getMessage());
+            System.out.println("Requirement 2.a(fail): " + ex.getMessage() + '\n');
         }
     }
 
@@ -195,6 +217,7 @@ public class DietTest {
             boolean res = dietManager.areCompatible(person, f1);
             if (res){
                 assertTrue(dietManager.areCompatible(person, f1));
+                System.out.println("Requirement 2.b(pass): " + dietManager.areCompatible(person, f1) + '\n');
             } else {
                 throw new IllegalArgumentException("This person is allergic to 50% or more of this diet");
             }
@@ -227,7 +250,7 @@ public class DietTest {
             }
         }catch (IllegalArgumentException ex) {
             assertEquals("This diet is not compatible to this person.", ex.getMessage());
-            System.out.println(ex.getMessage());
+            System.out.println("Requirement 2.b(fail): " + ex.getMessage() + '\n');
         }
 
     }
@@ -241,6 +264,8 @@ public class DietTest {
         assertTrue(l1.minWeight(60));
         assertTrue(v1.minweightkg(60));
 
+        System.out.println("Requirement 2.c(pass): " + l1.minWeight(60) + '\n');
+        System.out.println("Requirement 2.c(pass): " + v1.minweightkg(60) + '\n');
     }
 
     /*Requirement 2.C Fail (Throw a exception)*/
@@ -250,7 +275,7 @@ public class DietTest {
                 LowcarbDiet lowCarb = new LowcarbDiet(40);
             } catch (IllegalArgumentException ex) {
                 assertEquals("This person is too underweight to go on this diet.", ex.getMessage());
-                System.out.println(ex.getMessage());
+                System.out.println("Requirement 2.c(fail): " + ex.getMessage() + '\n');
             }
 
     }
@@ -261,7 +286,7 @@ public class DietTest {
             VeganDiet v1 = new VeganDiet(40);
         }catch (IllegalArgumentException ex) {
             assertEquals("This person is too underweight to go on this diet", ex.getMessage());
-            System.out.println(ex.getMessage());
+            System.out.println("Requirement 2.c(fail): " + ex.getMessage() + '\n');
         }
     }
 
@@ -269,7 +294,8 @@ public class DietTest {
     @Test
     public void overWeightPass(){
         HypercaloricDiet h1 = new HypercaloricDiet(149);
-
+        assertTrue(h1.maxWeight(100));
+        System.out.println("Requirement 2.d(pass): " + h1.maxWeight(90) + '\n');
     }
 
     /*Requirement 2.D Fail (Throw a exception)*/
@@ -279,7 +305,7 @@ public class DietTest {
             HypercaloricDiet h1 = new HypercaloricDiet(160);
         } catch (IllegalArgumentException exception) {
             assertEquals("This person is too overweight to go on this diet", exception.getMessage());
-            System.out.println(exception.getMessage());
+            System.out.println("Requirement 2.d(fail): " + exception.getMessage() + '\n');
         }
     }
 
@@ -311,6 +337,11 @@ public class DietTest {
         assertEquals("Hypercaloric Diet lasts for 0 years, 6 months and 17 days.", resHyper);
         assertEquals("Vegan Diet lasts for 0 years, 6 months and 18 days.",resVegan);
         assertEquals("Flexitarian Diet lasts for 0 years, 4 months and 28 days.", resFlex);
+
+        System.out.println("Requirement 3.a: " + resLow);
+        System.out.println("Requirement 3.a: " + resHyper);
+        System.out.println("Requirement 3.a: " + resVegan);
+        System.out.println("Requirement 3.a: " + resFlex + '\n');
     }
 
     @Test
@@ -339,14 +370,16 @@ public class DietTest {
         assertEquals("The following food is allowed in the Hypercaloric Diet: Chicken, Salad, Rice, Salmon, Bread, Steak, Lasagne, Cheese, Milk, Taco,", resHyper);
         assertEquals("The following food is allowed in the Lowcarb Diet: Chicken, Salad, Rice, Salmon, Bread, Cucumber, yoghurt, vegetarian pie, soup, Soy milk,", resLowCarb);
 
+        System.out.println("Requirement 3.a: " + resFlex);
+        System.out.println("Requirement 3.a: " + resVegan);
+        System.out.println("Requirement 3.a: " + resHyper);
+        System.out.println("Requirement 3.a: " + resLowCarb + '\n');
     }
 
 
 
 
     /************************ Requirements 4 ***************************/
-
-
 
     @Test
     public void randomPersonRandomDietTest(){
@@ -360,10 +393,9 @@ public class DietTest {
             throw new IllegalArgumentException("This diet is not compatible to this person.");
         }
         assertEquals(true, res);
+        System.out.println("Requirement 4.a: " + res + '\n');
 
     }
-
-    /************************ Requirements 4b ***************************/
 
     @Test
     public void personAndListOfFoodTest(){
@@ -371,16 +403,12 @@ public class DietTest {
         Food[] food = new Food[]{
                 new Food()
         };
+        System.out.println("Requirement 4.a: ");
         DietManager newdiet = new DietManager();
 
         assertTrue(String.valueOf(newdiet.randomDiet(person, food)), true);
+
     }
-
-
-
-    /**************************Tests********************************************/
-
-
 }
 
 
