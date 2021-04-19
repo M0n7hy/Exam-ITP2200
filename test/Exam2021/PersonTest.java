@@ -7,35 +7,38 @@ import static org.junit.Assert.assertTrue;
 
 public class PersonTest {
 
-    /************************ Requirements 4 ***************************/
 
+    /**************************** Requirements 2 *******************************/
+
+    /*Requirement 2.A Pass*/
     @Test
-    public void randomPersonRandomDietTest(){
-        Person person = new Person();
-        HypercaloricDiet h1 = new HypercaloricDiet(80);
-        DietManager dietManager = new DietManager();
-
-
-        boolean res = dietManager.areCompatible(person, h1);
-        if (!res) {
-            throw new IllegalArgumentException("This diet is not compatible to this person.");
-        }
-        assertEquals(true, res);
-        System.out.println("Requirement 4.a: " + res + '\n');
-
+    public void favoriteFoodPass(){
+        Person person = new Person(new Food("Seaweed", 306, true, FoodType.Carb),
+                new Food[]{
+                        new Food("Tofu", 150, true, FoodType.Protein),
+                        new Food("Salad", 200, true, FoodType.Recipe),
+                        new Food("Rice", 300, true, FoodType.Carb),
+                        new Food("Lentils", 120, true, FoodType.Protein)
+                }, 80.0f);
+        VeganDiet v1 = new VeganDiet(80);
+        DietManager d1 = new DietManager();
+        assertTrue(d1.areCompatible(person, v1));
+        System.out.println("Requirement 2.a(pass): " + d1.areCompatible(person, v1) + '\n');
     }
 
+    /*Requirement 2.A Fail (Throw a exception)*/
     @Test
-    public void personAndListOfFoodTest(){
+    public void favoriteFoodFail(){
         Person person = new Person();
-        Food[] food = new Food[]{
-                new Food()
-        };
-        System.out.println("Requirement 4.a: ");
-        DietManager newdiet = new DietManager();
+        VeganDiet v1 = new VeganDiet(60);
+        DietManager d1 = new DietManager();
 
-        assertTrue(String.valueOf(newdiet.randomDiet(person, food)), true);
-
+        try {
+            d1.areCompatible(person, v1);
+        } catch (IllegalArgumentException ex) {
+            assertEquals("This person can not go on a vegan diet", ex.getMessage());
+            System.out.println("Requirement 2.a(fail): " + ex.getMessage() + '\n');
+        }
     }
 
     /*Requirement 2.B Pass*/
