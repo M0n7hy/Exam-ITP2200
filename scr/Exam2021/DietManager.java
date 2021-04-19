@@ -32,9 +32,6 @@ public class DietManager {
     }
 
 
-
-
-
     public HypercaloricDiet randomDiet(Person person, Food[] food){
         HypercaloricDiet tmpRandomDiet = new HypercaloricDiet(80);
 

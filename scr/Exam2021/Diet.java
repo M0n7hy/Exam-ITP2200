@@ -26,31 +26,23 @@ abstract class Diet {
     }
 
     public String writeAllowedFood(){
-
         String tempFood = "";
-
-        for (int i = 0; i < this.allowedFood.length; i++) {
-            tempFood += " " + this.allowedFood[i].name + ",";
-        }
-
-        String Result = "The following food is allowed in the " + getName() + ":" + tempFood;
-        return Result;
+            for (int i = 0; i < this.allowedFood.length; i++) {
+                tempFood += " " + this.allowedFood[i].name + ",";
+            }
+            String Result = "The following food is allowed in the " + getName() + ":" + tempFood;
+                return Result;
     }
 
-
     public void isVegan() {
-
         for (Food food : allowedFood) {
             if (!food.isVegan) {
                 throw new IllegalArgumentException("There is food in this diet that is not vegan.");
             }
-
         }
     }
 
-
     public void isVeganIsNotVegan(){
-
         int number = 0;
         int count = 0;
         for (Food food : allowedFood) {
@@ -69,7 +61,6 @@ abstract class Diet {
 
 
     public boolean noMoreThenTwoCarb(){
-
         int count = 0;
         for (Food food : allowedFood) {
             if (food.type == FoodType.Carb) {
@@ -82,11 +73,6 @@ abstract class Diet {
         return true;
     }
 
-
-    public void dietName(String name) {
-        this.name = name;
-    }
-
     public void dietDuration(String name, Date startDate, Date endDate){
         this.name = name;
         this.startDate = startDate;
@@ -94,7 +80,9 @@ abstract class Diet {
         writeDuraton();
 
     }
-
+    public void dietName(String name) {
+        this.name = name;
+    }
     public void setName(String name) {
         this.name = name;
     }
