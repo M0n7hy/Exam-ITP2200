@@ -270,7 +270,7 @@ public class DietTest {
 
     /*Requirement 2.C Fail (Throw a exception)*/
     @Test
-    public void lowWeightFail(){
+    public void lowCarbWeightFail(){
             try {
                 LowcarbDiet lowCarb = new LowcarbDiet(40);
             } catch (IllegalArgumentException ex) {
@@ -281,7 +281,7 @@ public class DietTest {
     }
     /*Requirement 2.C Fail (Throw a exception)*/
     @Test
-    public void lowWeightFail2(){
+    public void veganWeightFail(){
         try {
             VeganDiet v1 = new VeganDiet(40);
         }catch (IllegalArgumentException ex) {

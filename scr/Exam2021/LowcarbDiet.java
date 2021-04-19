@@ -3,7 +3,7 @@ package Exam2021;
 public class LowcarbDiet extends Diet {
 
 
-    float minWeightKg;  //se på det senere.
+    float minWeightKg;
 
     public boolean minWeight(float personWeight){
         this.minWeightKg = personWeight;
