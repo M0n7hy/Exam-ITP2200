@@ -97,7 +97,7 @@ public class DietManager {
         System.out.println("Food list: \n" + foods);
         System.out.println("Diet is: " + isVegan + '\n');
         System.out.println("The max weight of the participant: " + res3 + "kg" + '\n');
-        System.out.println("Minimum calories per day: " + res2 + " kcal");
+        System.out.println("Minimum calories per day: " + res2 + " kcal" + '\n');
 
         return tmpRandomDiet;
     }

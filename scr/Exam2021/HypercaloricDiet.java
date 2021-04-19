@@ -9,10 +9,10 @@ public class HypercaloricDiet extends Diet {
 
 
 
-    public void maxWeight(float personsWeight){
+    public boolean maxWeight(float personsWeight){
         this.maxWeighKg = personsWeight;
         if (personsWeight < 150){
-            return;
+            return true;
         } else {
             throw new IllegalArgumentException("This person is too overweight to go on this diet");
         }
