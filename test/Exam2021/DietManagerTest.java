@@ -27,7 +27,7 @@ public class DietManagerTest {
             }
         } catch (IllegalArgumentException ex) {
             assertEquals("This diet is not compatible to this person.", ex.getMessage());
-            System.out.println("Requirement 4.A(Fail): " + ex.getMessage());
+            System.out.println("Requirement 4.A(Fail): " + ex.getMessage() + '\n');
         }
 
     }
@@ -51,7 +51,7 @@ public class DietManagerTest {
             }
         } catch (IllegalArgumentException ex) {
             assertEquals("This diet is not compatible to this person.", ex.getMessage());
-            System.out.println("Requirement 4.A(Fail): " + ex.getMessage());
+            System.out.println("Requirement 4.A(Fail): " + ex.getMessage() + '\n');
         }
 
 
@@ -90,7 +90,7 @@ public class DietManagerTest {
         Food[] food = new Food[]{
                 new Food()
         };
-        System.out.println("Requirement 4.a: ");
+        System.out.println("Requirement 4.B: ");
         DietManager newdiet = new DietManager();
 
         assertTrue(String.valueOf(newdiet.randomDiet(person, food)), true);
