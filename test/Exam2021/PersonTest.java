@@ -20,9 +20,10 @@ public class PersonTest {
                         new Food("Rice", 300, true, FoodType.Carb),
                         new Food("Lentils", 120, true, FoodType.Protein)
                 }, 80.0f);
+
         VeganDiet v1 = new VeganDiet(80);
         DietManager d1 = new DietManager();
-        assertTrue(d1.areCompatible(person, v1));
+        assertTrue(d1.favoriteFood(person, v1));
         System.out.println("Requirement 2.a(pass): " + d1.areCompatible(person, v1) + '\n');
     }
 
@@ -33,12 +34,17 @@ public class PersonTest {
         VeganDiet v1 = new VeganDiet(60);
         DietManager d1 = new DietManager();
 
+        boolean res = d1.favoriteFood(person, v1);
+
         try {
-            d1.areCompatible(person, v1);
-        } catch (IllegalArgumentException ex) {
-            assertEquals("This person can not go on a vegan diet", ex.getMessage());
+            if (!res) {
+                throw new IllegalArgumentException("This person favorite food is not vegan, and can not go on a vegan diet.");
+            }
+        } catch (IllegalArgumentException ex){
+            assertEquals("This person favorite food is not vegan, and can not go on a vegan diet.", ex.getMessage());
             System.out.println("Requirement 2.a(fail): " + ex.getMessage() + '\n');
         }
+
     }
 
     /*Requirement 2.B Pass*/
