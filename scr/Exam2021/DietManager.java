@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class DietManager {
 
-
+/*
     public boolean areCompatible(Person person, Diet diet) {
         int count = 0;
 
@@ -22,13 +22,46 @@ public class DietManager {
             return false;
         } else if (person.favoriteFood.isVegan != true) {
             if (diet.isVegan == true) {
-                throw new IllegalArgumentException("This person can not go on a vegan diet");
+                return false;
             }
 
         }
         return true;
     }
 
+ */
+
+
+
+    public boolean areCompatible(Person person, Diet diet) {
+        int count = 0;
+
+        for (Food f : person.allergies) {
+            for (Food food : diet.allowedFood) {
+                if (f.name == food.name) {
+                    count++;
+                }
+            }
+        }
+        int dividedAllFoodLen = diet.allowedFood.length / 2;
+        if (count >= dividedAllFoodLen) {
+            return false;
+        } else{
+            if (!favoriteFood(person, diet)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean favoriteFood(Person person, Diet diet) {
+        if (person.favoriteFood.isVegan != true) {
+            if (diet.isVegan == true) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public HypercaloricDiet randomDiet(Person person, Food[] food){
         HypercaloricDiet tmpRandomDiet = new HypercaloricDiet(80);

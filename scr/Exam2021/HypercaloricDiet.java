@@ -60,10 +60,11 @@ public class HypercaloricDiet extends Diet {
         maxWeight(checkWeight);
     }
 
-    public HypercaloricDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan) {
+    public HypercaloricDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight) {
         this.daysDuration = daysD;
         this.purpose = purpose;
         this.allowedFood = allowedFood;
         this.isVegan = isVegan;
+        maxWeight(checkWeight);
     }
 }
