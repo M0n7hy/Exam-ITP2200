@@ -20,12 +20,6 @@ public class Person {
         diet = new FlexitarianDiet();
     }
 
-    public Person(Food favoriteFood, Food[] allergies, Diet diet, Float weight ){
-        this.favoriteFood = favoriteFood;
-        this.allergies = allergies;
-        this.diet = diet;
-        this.weight = weight;
-    }
 
     public Person(Food favoriteFood, Food[] allergies, Float weight ){
         this.favoriteFood = favoriteFood;
