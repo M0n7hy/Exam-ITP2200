@@ -10,16 +10,14 @@ abstract class Diet {
     Food[] allowedFood;
     boolean isVegan;
 
-    String name;
-    Date startDate;
-    Date endDate;
+    private String name;
+    private Date startDate;
+    private Date endDate;
 
 
 
 
-
-//3.a.Write the duration of a diet in terms of years, months and days, e.g., “This VeganDiet lasts for 2 years, 3 months and 5 days”.
-    public String writeDuraton(){
+    public String writeDuration(){
         String Result = getName() + " lasts for " + getEndDate().yearSince(getStartDate())+ " years, " + getEndDate().monthSince(getStartDate())+ " months and "
                 + dayDiff(getStartDate(), getEndDate()) +" days.";
         return Result;
@@ -59,7 +57,6 @@ abstract class Diet {
         }
     }
 
-
     public boolean noMoreThenTwoCarb(){
         int count = 0;
         for (Food food : allowedFood) {
@@ -77,9 +74,12 @@ abstract class Diet {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
-        writeDuraton();
-
+        writeDuration();
     }
+
+
+
+
     public void dietName(String name) {
         this.name = name;
     }

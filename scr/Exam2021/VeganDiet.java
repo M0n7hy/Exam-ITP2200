@@ -2,7 +2,7 @@ package Exam2021;
 
 public class VeganDiet extends Diet {
 
-    Float minWeightKg;
+   private Float minWeightKg;
 
     public boolean minweightkg(float personsWeight){
             this.minWeightKg = personsWeight;

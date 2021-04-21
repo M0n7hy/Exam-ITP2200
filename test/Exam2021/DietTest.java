@@ -180,10 +180,10 @@ public class DietTest {
         FlexitarianDiet flex = new FlexitarianDiet();
         flex.dietDuration("Flexitarian Diet", new Date(2021, 4, 14), new Date(2021, 9, 11));
 
-        String resLow = low.writeDuraton();
-        String resHyper = hyper.writeDuraton();
-        String resVegan = vegan.writeDuraton();
-        String resFlex = flex.writeDuraton();
+        String resLow = low.writeDuration();
+        String resHyper = hyper.writeDuration();
+        String resVegan = vegan.writeDuration();
+        String resFlex = flex.writeDuration();
 
         assertEquals("Vegan Diet lasts for 1 years, 6 months and 5 days.", resLow);
         assertEquals("Hypercaloric Diet lasts for 0 years, 6 months and 17 days.", resHyper);
