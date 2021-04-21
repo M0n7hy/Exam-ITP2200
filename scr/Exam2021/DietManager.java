@@ -36,7 +36,7 @@ public class DietManager {
         return true;
     }
 
-    public String extra(Person person){
+    public String recommendedDiet(Person person){
         String res = "";
         if (person.favoriteFood.isVegan && person.weight > 80){
             res = "I recommend you start on a vegan diet.";
