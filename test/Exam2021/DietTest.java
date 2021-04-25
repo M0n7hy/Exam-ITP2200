@@ -9,7 +9,6 @@ public class DietTest {
 
     /********************************* Requirements 1 *********************************/
 
-
     /*Requirement 1.A pass, Unit testing*/
     @Test
     public void isVeganIsNotVeganPass(){
@@ -38,7 +37,6 @@ public class DietTest {
         }
     }
 
-
     /*Requirement 1.B pass, Unit testing*/
     @Test
     public void isVeganIsNotVeganTwoPass(){
@@ -59,10 +57,9 @@ public class DietTest {
             assertTrue(v1.isVeganIsNotVegan());
         } catch (IllegalArgumentException ex) {
             assertEquals("This is considered a vegan Diet!", ex.getMessage());
-            System.out.println("Requierment 1.b(fail): " + ex.getMessage() + '\n');
+            System.out.println("Requirement 1.b(fail): " + ex.getMessage() + '\n');
         }
     }
-
 
     /*Requirement 1.C pass, Unit testing*/
     @Test
@@ -74,7 +71,6 @@ public class DietTest {
                 new Food("Lentils", 120, true, FoodType.Protein)}, true, 60);
 
          assertTrue(v1.isVegan());
-
     }
 
     /*Requirement 1.C Fail (Throw a exception), Unit testing*/
@@ -118,15 +114,13 @@ public class DietTest {
         }
     }
 
-
     /*Requirement 1.E Pass, Unit testing*/
     @Test
     public void onlyTwoCarbPass(){
-        LowcarbDiet L1 = new LowcarbDiet(70/*person weight*/);
+        LowcarbDiet L1 = new LowcarbDiet();
         L1.noMoreThenTwoCarb();
 
-        assertTrue(String.valueOf(L1.noMoreThenTwoCarb()), true);
-        System.out.println("Requirement 1.e(pass): " + L1.noMoreThenTwoCarb() + '\n');
+        assertTrue((L1.noMoreThenTwoCarb()));
     }
 
     /*Requirement 1.E Fail (Throw a exception), Unit testing*/
@@ -148,19 +142,18 @@ public class DietTest {
     }
 
 
-
     /*********************** Requirements 3 ********************************/
 
     /*Requirement 3.A Pass, Unit testing*/
     @Test
     public void durationTest(){
-        LowcarbDiet low = new LowcarbDiet(60);
+        LowcarbDiet low = new LowcarbDiet();
         low.dietDuration("Vegan Diet", new Date(2019,2,24),new Date(2020, 8, 29));
 
-        HypercaloricDiet hyper = new HypercaloricDiet(70);
+        HypercaloricDiet hyper = new HypercaloricDiet();
         hyper.dietDuration("Hypercaloric Diet", new Date(2020, 4, 10), new Date(2020, 10, 27));
 
-        VeganDiet vegan = new VeganDiet(70);
+        VeganDiet vegan = new VeganDiet();
         vegan.dietDuration("Vegan Diet", new Date(2012, 12, 10), new Date(2013, 6, 28));
 
         FlexitarianDiet flex = new FlexitarianDiet();
@@ -176,10 +169,6 @@ public class DietTest {
         assertEquals("Vegan Diet lasts for 0 years, 6 months and 18 days.",resVegan);
         assertEquals("Flexitarian Diet lasts for 0 years, 4 months and 28 days.", resFlex);
 
-        System.out.println("Requirement 3.a: " + resLow);
-        System.out.println("Requirement 3.a: " + resHyper);
-        System.out.println("Requirement 3.a: " + resVegan);
-        System.out.println("Requirement 3.a: " + resFlex + '\n');
     }
 
     /*Requirement 3.B Pass, Unit testing*/
@@ -189,13 +178,13 @@ public class DietTest {
         FlexitarianDiet flex = new FlexitarianDiet();
         flex.dietName("Flexitarian Diet");
 
-        VeganDiet vegan = new VeganDiet(60);
+        VeganDiet vegan = new VeganDiet();
         vegan.dietName("Vegan Diet");
 
-        HypercaloricDiet hyper = new HypercaloricDiet(60);
+        HypercaloricDiet hyper = new HypercaloricDiet();
         hyper.dietName("Hypercaloric Diet");
 
-        LowcarbDiet lovC = new LowcarbDiet(60);
+        LowcarbDiet lovC = new LowcarbDiet();
         lovC.dietName("Lowcarb Diet");
 
         String resFlex = flex.writeAllowedFood();
@@ -208,10 +197,6 @@ public class DietTest {
         assertEquals("The following food is allowed in the Hypercaloric Diet: Chicken, Salad, Rice, Salmon, Bread, Steak, Lasagne, Cheese, Milk, Taco,", resHyper);
         assertEquals("The following food is allowed in the Lowcarb Diet: Chicken, Salad, Rice, Salmon, Bread, Cucumber, yoghurt, vegetarian pie, soup, Soy milk,", resLowCarb);
 
-        System.out.println("Requirement 3.a: " + resFlex);
-        System.out.println("Requirement 3.a: " + resVegan);
-        System.out.println("Requirement 3.a: " + resHyper);
-        System.out.println("Requirement 3.a: " + resLowCarb + '\n');
     }
 }
 

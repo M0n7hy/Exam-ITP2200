@@ -38,6 +38,7 @@ public class HypercaloricDiet extends Diet {
         isVegan = false;
     }
 
+    /*Constructor*/
     public HypercaloricDiet(float checkWeight) {
         daysDuration = 388;
         purpose = "max calories(mostly for pro's)";

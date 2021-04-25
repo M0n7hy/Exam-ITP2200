@@ -27,7 +27,7 @@ public class DietManager {
         return true;
     }
 
-    /*Making sure The persons favorite food is not and going on a vegan diet. Criteria 2.A and 4.A */
+    /*Making sure The persons favorite food is not vegan and going on a vegan diet. Criteria 2.A and 4.A */
     public boolean favoriteFood(Person person, Diet diet) {
         if (person.favoriteFood.isVegan != true) {
             if (diet.isVegan == true) {

@@ -14,7 +14,6 @@ public class VeganDiet extends Diet {
             }
     }
 
-
     /*Constructor*/
     public VeganDiet(){
             daysDuration = 200;

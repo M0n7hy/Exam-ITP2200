@@ -23,8 +23,8 @@ public class PersonTest {
 
         VeganDiet v1 = new VeganDiet();
         DietManager d1 = new DietManager();
+
         assertTrue(d1.favoriteFood(person, v1));
-        System.out.println("Requirement 2.a(pass): " + d1.areCompatible(person, v1) + '\n');
     }
 
     /*Requirement 2.A Fail, (Throw a exception), Integration Testing */
@@ -62,22 +62,10 @@ public class PersonTest {
                 }, false, 300.90f,new Food("Salmon", 190, false, FoodType.Protein));
         DietManager dietManager = new DietManager();
 
-        try {
-            boolean res = dietManager.areCompatible(person, f1);
-            if (res){
-                assertTrue(dietManager.areCompatible(person, f1));
-                System.out.println("Requirement 2.b(pass): " + dietManager.areCompatible(person, f1) + '\n');
-            } else {
-                throw new IllegalArgumentException("This person is allergic to 50% or more of this diet");
-            }
-        } catch (IllegalArgumentException ex) {
-            assertEquals("This person is allergic to 50% or more of this diet", ex.getMessage());
-            System.out.println(ex.getMessage());
-        }
+        assertTrue(dietManager.areCompatible(person, f1));
     }
 
     /*Requirement 2.B Fail (Throw a exception), Integration Testing*/
-
     @Test
     public void allergicFail(){
         Person person = new Person(new Food("Ice cream", 220, false, FoodType.Fat),
@@ -101,7 +89,6 @@ public class PersonTest {
             assertEquals("This diet is not compatible to this person.", ex.getMessage());
             System.out.println("Requirement 2.b(fail): " + ex.getMessage() + '\n');
         }
-
     }
 
     /*Requirement 2.C Pass, Unit testing*/
@@ -112,9 +99,6 @@ public class PersonTest {
 
         assertTrue(l1.minWeight(60));
         assertTrue(v1.minWeightKg(60));
-
-        System.out.println("Requirement 2.c(pass): " + l1.minWeight(60) + '\n');
-        System.out.println("Requirement 2.c(pass): " + v1.minWeightKg(60) + '\n');
     }
 
     /*Requirement 2.C Fail (Throw a exception), Unit testing*/
@@ -128,7 +112,6 @@ public class PersonTest {
             assertEquals("This person is too underweight to go on this diet.", ex.getMessage());
             System.out.println("Requirement 2.c(fail): " + ex.getMessage() + '\n');
         }
-
     }
 
     /*Requirement 2.C Fail (Throw a exception), Unit testing*/
@@ -149,7 +132,6 @@ public class PersonTest {
     public void overWeightPass(){
         HypercaloricDiet h1 = new HypercaloricDiet();
         assertTrue(h1.maxWeight(100));
-
     }
 
     /*Requirement 2.D Fail (Throw a exception), Unit testing*/

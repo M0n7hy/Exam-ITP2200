@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class ExtraTest {
 
 
+    /*Extra feature that returns a string value, Unit test */
   @Test
   public void recommendedDiet() {
 

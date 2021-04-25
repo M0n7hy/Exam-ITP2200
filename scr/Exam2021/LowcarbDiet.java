@@ -34,25 +34,6 @@ public class LowcarbDiet extends Diet {
         isVegan = false;
     }
 
-    /*Constructor*/
-    public LowcarbDiet(float checkWeight) {
-        daysDuration = 200;
-        purpose = "weight lost";
-        allowedFood = new Food[]{
-                new Food("Chicken", 150, false, FoodType.Protein),
-                new Food("Salad", 200, true, FoodType.Recipe),
-                new Food("Rice", 300, true, FoodType.Carb),
-                new Food("Salmon", 100, false, FoodType.Protein),
-                new Food("Bread", 80, true, FoodType.Carb),
-                new Food("Cucumber", 20, true, FoodType.Protein),
-                new Food("yoghurt", 58, false, FoodType.Fat),
-                new Food("vegetarian pie", 340, false, FoodType.Recipe),
-                new Food("soup", 220, false, FoodType.Recipe),
-                new Food("Soy milk", 30, true, FoodType.Fat)
-        };
-        isVegan = false;
-        minWeight(checkWeight);
-    }
 
     /*Constructor*/
     public LowcarbDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight){
