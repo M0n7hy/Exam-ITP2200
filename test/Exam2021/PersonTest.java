@@ -10,7 +10,7 @@ public class PersonTest {
 
     /**************************** Requirements 2 *******************************/
 
-    /*Requirement 2.A Pass*/
+    /*Requirement 2.A Pass, Integration Testing    */
     @Test
     public void favoriteFoodPass(){
         Person person = new Person(new Food("Seaweed", 306, true, FoodType.Carb),
@@ -27,7 +27,7 @@ public class PersonTest {
         System.out.println("Requirement 2.a(pass): " + d1.areCompatible(person, v1) + '\n');
     }
 
-    /*Requirement 2.A Fail (Throw a exception)*/
+    /*Requirement 2.A Fail, (Throw a exception), Integration Testing */
     @Test
     public void favoriteFoodFail(){
         Person person = new Person();
@@ -47,7 +47,7 @@ public class PersonTest {
 
     }
 
-    /*Requirement 2.B Pass*/
+    /*Requirement 2.B Pass, Integration Testing*/
     @Test
     public void allergicPass(){
         Person person = new Person(new Food("Ice cream", 220, false, FoodType.Fat),
@@ -76,7 +76,7 @@ public class PersonTest {
         }
     }
 
-    /*Requirement 2.B Fail (Throw a exception)*/
+    /*Requirement 2.B Fail (Throw a exception), Integration Testing*/
 
     @Test
     public void allergicFail(){
@@ -104,7 +104,7 @@ public class PersonTest {
 
     }
 
-    /*Requirement 2.C Pass*/
+    /*Requirement 2.C Pass, Unit testing*/
     @Test
     public void lowWeightPass(){
         LowcarbDiet l1 = new LowcarbDiet(60);
@@ -117,7 +117,7 @@ public class PersonTest {
         System.out.println("Requirement 2.c(pass): " + v1.minweightkg(60) + '\n');
     }
 
-    /*Requirement 2.C Fail (Throw a exception)*/
+    /*Requirement 2.C Fail (Throw a exception), Unit testing*/
     @Test
     public void lowCarbWeightFail(){
         try {
@@ -128,7 +128,7 @@ public class PersonTest {
         }
 
     }
-    /*Requirement 2.C Fail (Throw a exception)*/
+    /*Requirement 2.C Fail (Throw a exception), Unit testing*/
     @Test
     public void veganWeightFail(){
         try {
@@ -139,7 +139,7 @@ public class PersonTest {
         }
     }
 
-    /*Requirement 2.D Pass*/
+    /*Requirement 2.D Pass, Unit testing*/
     @Test
     public void overWeightPass(){
         HypercaloricDiet h1 = new HypercaloricDiet(149);
@@ -147,7 +147,7 @@ public class PersonTest {
         System.out.println("Requirement 2.d(pass): " + h1.maxWeight(90) + '\n');
     }
 
-    /*Requirement 2.D Fail (Throw a exception)*/
+    /*Requirement 2.D Fail (Throw a exception), Unit testing*/
     @Test
     public void overWeightFail(){
         try {

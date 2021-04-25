@@ -10,7 +10,7 @@ public class DietManagerTest {
 
 
     /************************ Requirements 4 ***************************/
-    /*Requirement 4.A Pass*/
+    /*Requirement 4.A Pass, Integration Testing*/
     @Test
     public void randomPersonRandomDietTestPass(){
         Person person = new Person();
@@ -31,7 +31,7 @@ public class DietManagerTest {
         }
 
     }
-    /*Requirement 4.A Fail (Throw a exception)*/
+    /*Requirement 4.A Fail (Throw a exception), Integration Testing*/
     @Test
     public void randomPersonRandomDietTestFail(){
         Person person = new Person(new Food("Beef", 320, false, FoodType.Protein), new Food[]{
@@ -57,7 +57,7 @@ public class DietManagerTest {
 
     }
 
-    /*Requirement 4.A Fail (Throw a exception)*/
+    /*Requirement 4.A Fail (Throw a exception), Integration Testing*/
 
     @Test
     public void randomPersonRandomDietTestFailTwo(){
@@ -82,7 +82,7 @@ public class DietManagerTest {
     }
 
 
-    /*Requirement 4.B Pass*/
+    /*Requirement 4.B Pass, Integration Testing*/
 
     @Test
     public void personAndListOfFoodTest(){
