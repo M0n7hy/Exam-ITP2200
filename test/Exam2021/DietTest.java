@@ -10,7 +10,7 @@ public class DietTest {
     /********************************* Requirements 1 *********************************/
 
 
-    /*Requirement 1.A pass*/
+    /*Requirement 1.A pass, Unit testing*/
     @Test
     public void isVeganIsNotVeganPass(){
         FlexitarianDiet F1 = new FlexitarianDiet(2, "Loss weight", new Food[]{
@@ -21,24 +21,17 @@ public class DietTest {
                 new Food("peanut", 140, true, FoodType.Fat)
         }, false, 400, new Food("Pig", 200, false, FoodType.Protein));
 
-        //F1.isVeganIsNotVegan();
-        try {
-            F1.isVeganIsNotVegan();
-        } catch (IllegalArgumentException ex) {
-            assertEquals("This diet can not be considered vegan.", ex.getMessage());
-            assertEquals("This is a vegan Diet!", ex.getMessage());
-            System.out.println("Requirement 1.a(pass): " + ex.getMessage() + '\n');
-        }
+         assertTrue(F1.isVeganIsNotVegan() == true);
 
     }
 
-    /*Requirement 1.A Fail (Throw a exception)*/
+    /*Requirement 1.A Fail (Throw a exception), Unit testing*/
     @Test
     public void isVeganIsNotVeganFail(){
         HypercaloricDiet h1 = new HypercaloricDiet(80, true);
 
         try {
-            h1.isVeganIsNotVegan();
+            assertTrue(h1.isVeganIsNotVegan());
         } catch (IllegalArgumentException ex) {
             assertEquals("This diet can not be considered vegan.", ex.getMessage());
             System.out.println("Requirement 1.a(fail): " + ex.getMessage() + '\n');
@@ -46,58 +39,48 @@ public class DietTest {
     }
 
 
-    /*Requirement 1.B pass*/
-
+    /*Requirement 1.B pass, Unit testing*/
     @Test
     public void isVeganIsNotVeganTwoPass(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
+        VeganDiet v1 = new VeganDiet(200, "Vegan", new Food[]{
                 new Food("Tofu", 100, true, FoodType.Protein),
                 new Food("Almond", 50, true, FoodType.Fat)
         },true ,88);
 
-        vegan.isVeganIsNotVegan();
-        try {
-            vegan.isVeganIsNotVegan();
-        } catch (IllegalArgumentException ex) {
-            assertEquals("", ex.getMessage());
-            System.out.println("Requierment 1.b(pass): " + ex.getMessage() + '\n');
-        }
-
+            assertTrue(v1.isVeganIsNotVegan() == true);
     }
 
-    /*Requirement 1.B Fail (Throw a exception)*/
+    /*Requirement 1.B Fail (Throw a exception), Unit testing*/
     @Test
     public void isVeganIsNotVeganTwoFail(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},false ,88);
+        VeganDiet v1 = new VeganDiet(200, "Vegan", new Food[]{new Food("Tofu", 100, true, FoodType.Protein), new Food("Almond", 50, true, FoodType.Fat)},false ,88);
 
         try {
-            vegan.isVeganIsNotVegan();
+            assertTrue(v1.isVeganIsNotVegan());
         } catch (IllegalArgumentException ex) {
-            assertEquals("This is a vegan Diet!", ex.getMessage());
+            assertEquals("This is considered a vegan Diet!", ex.getMessage());
             System.out.println("Requierment 1.b(fail): " + ex.getMessage() + '\n');
         }
     }
 
 
-    /*Requirement 1.C pass*/
+    /*Requirement 1.C pass, Unit testing*/
     @Test
     public void isVeganPass(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
+        VeganDiet v1 = new VeganDiet(200, "Vegan", new Food[]{
                 new Food("Tofu", 150, true, FoodType.Protein),
                 new Food("Almond", 200, true, FoodType.Recipe),
                 new Food("Oat milk", 300, true, FoodType.Carb),
                 new Food("Lentils", 120, true, FoodType.Protein)}, true, 60);
 
-        vegan.isVegan();
-        assertTrue(String.valueOf(vegan.isVegan), true);
-        System.out.println("Requirement 1.c(pass): " + vegan.isVegan + '\n');
+         assertTrue(v1.isVegan());
 
     }
 
-    /*Requirement 1.C Fail (Throw a exception)*/
+    /*Requirement 1.C Fail (Throw a exception), Unit testing*/
     @Test
     public void isVeganFail(){
-        VeganDiet vegan = new VeganDiet(200, "Vegan", new Food[]{
+        VeganDiet v1 = new VeganDiet(200, "Vegan", new Food[]{
                 new Food("Tofu", 150, true, FoodType.Protein),
                 new Food("Beef", 200, false, FoodType.Recipe),
                 new Food("Oat milk", 300, true, FoodType.Carb),
@@ -105,21 +88,23 @@ public class DietTest {
         }, true, 60);
 
         try {
-            vegan.isVegan();
+            if (!v1.isVegan()); {
+                throw new IllegalArgumentException("There cant be any non-vegan food in a vegan diet.");
+            }
         } catch (IllegalArgumentException ex) {
-            assertEquals("There is food in this diet that is not vegan.", ex.getMessage());
+            assertEquals("There cant be any non-vegan food in a vegan diet.", ex.getMessage());
             System.out.println("Requirement 1.c(fail): " + ex.getMessage() + '\n');
         }
     }
 
-    /*Requirement 1.D Pass*/
+    /*Requirement 1.D Pass, Unit testing*/
     @Test
     public void preferMeatInFlexPass(){
         FlexitarianDiet f1 = new FlexitarianDiet(500, new Food("Ham", 200, false, FoodType.Protein));
         assertTrue(true);
     }
 
-    /*Requirement 1.D Fail (Throw a exception)*/
+    /*Requirement 1.D Fail (Throw a exception), Unit testing*/
 
     @Test
     public void preferMeatInFlexFail() {
@@ -132,7 +117,7 @@ public class DietTest {
     }
 
 
-    /*Requirement 1.E Pass*/
+    /*Requirement 1.E Pass, Unit testing*/
 
     @Test
     public void onlyTwoCarbPass(){
@@ -143,7 +128,7 @@ public class DietTest {
         System.out.println("Requirement 1.e(pass): " + L1.noMoreThenTwoCarb() + '\n');
     }
 
-    /*Requirement 1.E Fail (Throw a exception)*/
+    /*Requirement 1.E Fail (Throw a exception), Unit testing*/
     @Test
     public void onlyTwoCarbFail(){
         LowcarbDiet L1 = new LowcarbDiet(200, "Lose weight",
@@ -165,7 +150,7 @@ public class DietTest {
 
     /*********************** Requirements 3 ********************************/
 
-    /*Requirement 3.A Pass*/
+    /*Requirement 3.A Pass, Unit testing*/
     @Test
     public void durationTest(){
         LowcarbDiet low = new LowcarbDiet(60);
@@ -180,10 +165,10 @@ public class DietTest {
         FlexitarianDiet flex = new FlexitarianDiet();
         flex.dietDuration("Flexitarian Diet", new Date(2021, 4, 14), new Date(2021, 9, 11));
 
-        String resLow = low.writeDuraton();
-        String resHyper = hyper.writeDuraton();
-        String resVegan = vegan.writeDuraton();
-        String resFlex = flex.writeDuraton();
+        String resLow = low.writeDuration();
+        String resHyper = hyper.writeDuration();
+        String resVegan = vegan.writeDuration();
+        String resFlex = flex.writeDuration();
 
         assertEquals("Vegan Diet lasts for 1 years, 6 months and 5 days.", resLow);
         assertEquals("Hypercaloric Diet lasts for 0 years, 6 months and 17 days.", resHyper);
@@ -196,7 +181,7 @@ public class DietTest {
         System.out.println("Requirement 3.a: " + resFlex + '\n');
     }
 
-    /*Requirement 3.B Pass*/
+    /*Requirement 3.B Pass, Unit testing*/
     @Test
     public void allowedFoodTest() {
 

@@ -10,21 +10,19 @@ abstract class Diet {
     Food[] allowedFood;
     boolean isVegan;
 
-    String name;
-    Date startDate;
-    Date endDate;
+    private String name;
+    private Date startDate;
+    private Date endDate;
 
 
 
-
-
-//3.a.Write the duration of a diet in terms of years, months and days, e.g., “This VeganDiet lasts for 2 years, 3 months and 5 days”.
-    public String writeDuraton(){
+ /*This wil write the duration of a diet*/
+    public String writeDuration(){
         String Result = getName() + " lasts for " + getEndDate().yearSince(getStartDate())+ " years, " + getEndDate().monthSince(getStartDate())+ " months and "
                 + dayDiff(getStartDate(), getEndDate()) +" days.";
         return Result;
     }
-
+/*This writes the allowed food within the diet*/
     public String writeAllowedFood(){
         String tempFood = "";
             for (int i = 0; i < this.allowedFood.length; i++) {
@@ -33,32 +31,30 @@ abstract class Diet {
             String Result = "The following food is allowed in the " + getName() + ":" + tempFood;
                 return Result;
     }
-
-    public void isVegan() {
+    /*This makes sure theres no non-vegan food in the diet*/
+    public boolean isVegan() {
         for (Food food : allowedFood) {
-            if (!food.isVegan) {
-                throw new IllegalArgumentException("There is food in this diet that is not vegan.");
+            if (!food.isVegan && isVegan) {
+                return false;
             }
         }
+        return true;
     }
 
-    public void isVeganIsNotVegan(){
-        int number = 0;
+    public boolean isVeganIsNotVegan(){
         int count = 0;
         for (Food food : allowedFood) {
-            if (!food.isVegan) {
+            if (food.isVegan) {
                 count++;
-            } else {
-                number++;
             }
         }
-        if(count > 0 && isVegan){
+        if(!isVegan()){
             throw new IllegalArgumentException("This diet can not be considered vegan.");
-        }else if(number == allowedFood.length && !isVegan){
-            throw new IllegalArgumentException("This is a vegan Diet!");
+        }else if(count == allowedFood.length && !isVegan){
+            throw new IllegalArgumentException("This is considered a vegan Diet!");
         }
+        return true;
     }
-
 
     public boolean noMoreThenTwoCarb(){
         int count = 0;
@@ -77,9 +73,12 @@ abstract class Diet {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
-        writeDuraton();
-
+        writeDuration();
     }
+
+
+
+
     public void dietName(String name) {
         this.name = name;
     }
