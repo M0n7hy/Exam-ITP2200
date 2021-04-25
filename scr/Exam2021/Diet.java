@@ -15,14 +15,14 @@ abstract class Diet {
     private Date endDate;
 
 
-
- /*This wil write the duration of a diet*/
+    /*This wil write the duration of a diet (returns String).  Criteria 3.A*/
     public String writeDuration(){
         String Result = getName() + " lasts for " + getEndDate().yearSince(getStartDate())+ " years, " + getEndDate().monthSince(getStartDate())+ " months and "
                 + dayDiff(getStartDate(), getEndDate()) +" days.";
         return Result;
     }
-/*This writes the allowed food within the diet*/
+
+    /*This writes the allowed food within the diet (returns String).  Criteria 3.B*/
     public String writeAllowedFood(){
         String tempFood = "";
             for (int i = 0; i < this.allowedFood.length; i++) {
@@ -31,7 +31,8 @@ abstract class Diet {
             String Result = "The following food is allowed in the " + getName() + ":" + tempFood;
                 return Result;
     }
-    /*This makes sure theres no non-vegan food in the diet*/
+
+    /*This makes sure theres no non-vegan food in the diet. Criteria 1.C, 1.A*/
     public boolean isVegan() {
         for (Food food : allowedFood) {
             if (!food.isVegan && isVegan) {
@@ -41,6 +42,8 @@ abstract class Diet {
         return true;
     }
 
+    /*This Method corresponds with criteria 1.A and 1.B. This method calls upon isVegan() to make sure a vegan diet doesn't contain non-vegan food,
+    and the diet is marked ass vegan if it contains only vegan food.  */
     public boolean isVeganIsNotVegan(){
         int count = 0;
         for (Food food : allowedFood) {
@@ -56,6 +59,7 @@ abstract class Diet {
         return true;
     }
 
+    /*This method makes sure there is no more then 2 carbs in the lowCarbDiet. Criteria 1.E*/
     public boolean noMoreThenTwoCarb(){
         int count = 0;
         for (Food food : allowedFood) {
@@ -69,6 +73,7 @@ abstract class Diet {
         return true;
     }
 
+    /*This corresponds to the writeDuration method. Criteria 3.A */
     public void dietDuration(String name, Date startDate, Date endDate){
         this.name = name;
         this.startDate = startDate;
