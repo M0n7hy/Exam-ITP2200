@@ -2,8 +2,7 @@ package Exam2021;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class DietManagerTest {
@@ -17,20 +16,11 @@ public class DietManagerTest {
         HypercaloricDiet h1 = new HypercaloricDiet(80);
         DietManager dietManager = new DietManager();
 
-        try {
-            boolean res = dietManager.areCompatible(person, h1);
-            if (!res) {
-                throw new IllegalArgumentException("This diet is not compatible to this person.");
 
-            } else {
-                System.out.println("Requirement 4.A(pass): " + dietManager.areCompatible(person, h1) + '\n');
-            }
-        } catch (IllegalArgumentException ex) {
-            assertEquals("This diet is not compatible to this person.", ex.getMessage());
-            System.out.println("Requirement 4.A(Fail): " + ex.getMessage() + '\n');
-        }
+         assertTrue(dietManager.areCompatible(person, h1));
 
     }
+
     /*Requirement 4.A Fail (Throw a exception), Integration Testing*/
     @Test
     public void randomPersonRandomDietTestFail(){
@@ -40,25 +30,18 @@ public class DietManagerTest {
                 new Food("Peanuts", 90, true, FoodType.Fat), new Food("Milk", 90, false, FoodType.Fat), new Food("Salmon", 440, false, FoodType.Protein),new Food("Pickles", 50, true, FoodType.Carb)}, true, 80);
         DietManager dietManager = new DietManager();
 
-
         try {
             boolean res = dietManager.areCompatible(person, h1);
             if (!res) {
                 throw new IllegalArgumentException("This diet is not compatible to this person.");
-
-            } else {
-                System.out.println("Requirement 4.A(pass): " + dietManager.areCompatible(person, h1) + '\n');
             }
         } catch (IllegalArgumentException ex) {
             assertEquals("This diet is not compatible to this person.", ex.getMessage());
             System.out.println("Requirement 4.A(Fail): " + ex.getMessage() + '\n');
         }
-
-
     }
 
     /*Requirement 4.A Fail (Throw a exception), Integration Testing*/
-
     @Test
     public void randomPersonRandomDietTestFailTwo(){
         Person person = new Person(new Food("Beef", 320, false, FoodType.Protein), new Food[]{
@@ -71,9 +54,6 @@ public class DietManagerTest {
             boolean res = dietManager.areCompatible(person, h1);
             if (!res) {
                 throw new IllegalArgumentException("This diet is not compatible to this person.");
-
-            } else {
-                System.out.println("Requirement 4.A(pass): " + dietManager.areCompatible(person, h1) + '\n');
             }
         } catch (IllegalArgumentException ex) {
             assertEquals("This diet is not compatible to this person.", ex.getMessage());
@@ -83,7 +63,6 @@ public class DietManagerTest {
 
 
     /*Requirement 4.B Pass, Integration Testing*/
-
     @Test
     public void personAndListOfFoodTest(){
         Person person = new Person();
@@ -91,9 +70,9 @@ public class DietManagerTest {
                 new Food()
         };
         System.out.println("Requirement 4.B: ");
-        DietManager newdiet = new DietManager();
+        DietManager newDiet = new DietManager();
 
-        assertTrue(String.valueOf(newdiet.randomDiet(person, food)), true);
+        assertTrue(String.valueOf(newDiet.randomDiet(person, food)), true);
 
     }
 

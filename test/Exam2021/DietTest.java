@@ -21,7 +21,7 @@ public class DietTest {
                 new Food("peanut", 140, true, FoodType.Fat)
         }, false, 400, new Food("Pig", 200, false, FoodType.Protein));
 
-         assertTrue(F1.isVeganIsNotVegan() == true);
+         assertTrue(F1.isVeganIsNotVegan() == true); /*If assertTrue(!F1.isVeganIsNotVegan()) the test will not pass, cause then we expect a return of false*/
 
     }
 
@@ -47,7 +47,7 @@ public class DietTest {
                 new Food("Almond", 50, true, FoodType.Fat)
         },true ,88);
 
-            assertTrue(v1.isVeganIsNotVegan() == true);
+            assertTrue(v1.isVeganIsNotVegan() == true); /*This can be simplified by removing (== true), but its there to show that we are excepting a return of true*/
     }
 
     /*Requirement 1.B Fail (Throw a exception), Unit testing*/
@@ -100,25 +100,26 @@ public class DietTest {
     /*Requirement 1.D Pass, Unit testing*/
     @Test
     public void preferMeatInFlexPass(){
-        FlexitarianDiet f1 = new FlexitarianDiet(500, new Food("Ham", 200, false, FoodType.Protein));
-        assertTrue(true);
+        FlexitarianDiet f1 = new FlexitarianDiet();
+
+        assertTrue( f1.giveMeatAndGrams(500, new Food("Ham", 200, false, FoodType.Protein)));
     }
 
     /*Requirement 1.D Fail (Throw a exception), Unit testing*/
-
     @Test
     public void preferMeatInFlexFail() {
+        FlexitarianDiet f1 = new FlexitarianDiet();
+
         try {
-            FlexitarianDiet f1 = new FlexitarianDiet(500, new Food("Salad", 200, true, FoodType.Recipe));
+        f1.giveMeatAndGrams(500, new Food("Tofu", 200, true, FoodType.Protein));
         } catch (IllegalArgumentException ex) {
-            assertEquals("Must be non-Vegan food", ex.getMessage());
+            assertEquals("The preferred meat must be non-vegan FlexitarianDiet.", ex.getMessage());
             System.out.println("Requirement 1.d(fail): " + ex.getMessage() + '\n');
         }
     }
 
 
     /*Requirement 1.E Pass, Unit testing*/
-
     @Test
     public void onlyTwoCarbPass(){
         LowcarbDiet L1 = new LowcarbDiet(70/*person weight*/);

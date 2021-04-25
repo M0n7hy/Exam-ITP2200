@@ -7,9 +7,7 @@ public class Date {
 
     LocalDate date;
 
-    public Date(){
-        this.date = LocalDate.now();
-    }
+   /*This code calculates the time between two different dates, and returns the years, months, and days. Criteria 3.A */
 
     public Date(int year, int month, int day){
         this.date = LocalDate.of(year, month, day);

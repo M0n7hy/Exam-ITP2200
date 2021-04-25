@@ -6,6 +6,7 @@ public class FlexitarianDiet extends Diet {
     Food preferredMeat;
 
 
+    /*This method makes sure the preferred meat is non-Vegan. Criteria 1.D*/
     public boolean giveMeatAndGrams(float grams, Food meat){
             this.maxMeatGramsPerWeek = grams;
             this.preferredMeat = meat;
@@ -13,12 +14,12 @@ public class FlexitarianDiet extends Diet {
             if (meat.isVegan == false && meat.type == FoodType.Protein){
                 return true;
             }else{
-                throw new IllegalArgumentException("Must be non-Vegan food");
+                throw new IllegalArgumentException("The preferred meat must be non-vegan FlexitarianDiet.");
             }
 
         }
 
-
+    /*Constructor*/
     public FlexitarianDiet() {
         daysDuration = 150;
         purpose = "Eat less meat";
@@ -36,9 +37,9 @@ public class FlexitarianDiet extends Diet {
 
         };
         this.isVegan = false;
-        giveMeatAndGrams(150.90f, new Food("Chicken", 400, false, FoodType.Protein));
     }
 
+    /*Constructor*/
     public FlexitarianDiet( float maxMeatGramsPerWeek, Food preferredMeat) {
         daysDuration = 150;
         purpose = "Eat less meat";
@@ -59,6 +60,7 @@ public class FlexitarianDiet extends Diet {
         giveMeatAndGrams(maxMeatGramsPerWeek, preferredMeat);
     }
 
+    /*Constructor*/
     public FlexitarianDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float maxMeatGramsPerWeek, Food preferredMeat){
         this.daysDuration = daysD;
         this.purpose = purpose;

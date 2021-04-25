@@ -10,7 +10,7 @@ public class PersonTest {
 
     /**************************** Requirements 2 *******************************/
 
-    /*Requirement 2.A Pass, Integration Testing    */
+    /*Requirement 2.A Pass, Integration Testing */
     @Test
     public void favoriteFoodPass(){
         Person person = new Person(new Food("Seaweed", 306, true, FoodType.Carb),
@@ -21,7 +21,7 @@ public class PersonTest {
                         new Food("Lentils", 120, true, FoodType.Protein)
                 }, 80.0f);
 
-        VeganDiet v1 = new VeganDiet(80);
+        VeganDiet v1 = new VeganDiet();
         DietManager d1 = new DietManager();
         assertTrue(d1.favoriteFood(person, v1));
         System.out.println("Requirement 2.a(pass): " + d1.areCompatible(person, v1) + '\n');
@@ -31,7 +31,7 @@ public class PersonTest {
     @Test
     public void favoriteFoodFail(){
         Person person = new Person();
-        VeganDiet v1 = new VeganDiet(60);
+        VeganDiet v1 = new VeganDiet();
         DietManager d1 = new DietManager();
 
         boolean res = d1.favoriteFood(person, v1);
@@ -107,32 +107,37 @@ public class PersonTest {
     /*Requirement 2.C Pass, Unit testing*/
     @Test
     public void lowWeightPass(){
-        LowcarbDiet l1 = new LowcarbDiet(60);
-        VeganDiet v1 = new VeganDiet(60);
+        LowcarbDiet l1 = new LowcarbDiet();
+        VeganDiet v1 = new VeganDiet();
 
         assertTrue(l1.minWeight(60));
-        assertTrue(v1.minweightkg(60));
+        assertTrue(v1.minWeightKg(60));
 
         System.out.println("Requirement 2.c(pass): " + l1.minWeight(60) + '\n');
-        System.out.println("Requirement 2.c(pass): " + v1.minweightkg(60) + '\n');
+        System.out.println("Requirement 2.c(pass): " + v1.minWeightKg(60) + '\n');
     }
 
     /*Requirement 2.C Fail (Throw a exception), Unit testing*/
     @Test
     public void lowCarbWeightFail(){
+        LowcarbDiet lowCarb = new LowcarbDiet();
+
         try {
-            LowcarbDiet lowCarb = new LowcarbDiet(40);
+            lowCarb.minWeight(40);
         } catch (IllegalArgumentException ex) {
             assertEquals("This person is too underweight to go on this diet.", ex.getMessage());
             System.out.println("Requirement 2.c(fail): " + ex.getMessage() + '\n');
         }
 
     }
+
     /*Requirement 2.C Fail (Throw a exception), Unit testing*/
     @Test
     public void veganWeightFail(){
+        VeganDiet v1 = new VeganDiet();
+
         try {
-            VeganDiet v1 = new VeganDiet(40);
+            v1.minWeightKg(40);
         }catch (IllegalArgumentException ex) {
             assertEquals("This person is too underweight to go on this diet", ex.getMessage());
             System.out.println("Requirement 2.c(fail): " + ex.getMessage() + '\n');
@@ -142,16 +147,18 @@ public class PersonTest {
     /*Requirement 2.D Pass, Unit testing*/
     @Test
     public void overWeightPass(){
-        HypercaloricDiet h1 = new HypercaloricDiet(149);
+        HypercaloricDiet h1 = new HypercaloricDiet();
         assertTrue(h1.maxWeight(100));
-        System.out.println("Requirement 2.d(pass): " + h1.maxWeight(90) + '\n');
+
     }
 
     /*Requirement 2.D Fail (Throw a exception), Unit testing*/
     @Test
     public void overWeightFail(){
+            HypercaloricDiet h1 = new HypercaloricDiet();
+
         try {
-            HypercaloricDiet h1 = new HypercaloricDiet(160);
+           h1.maxWeight(160);
         } catch (IllegalArgumentException exception) {
             assertEquals("This person is too overweight to go on this diet", exception.getMessage());
             System.out.println("Requirement 2.d(fail): " + exception.getMessage() + '\n');

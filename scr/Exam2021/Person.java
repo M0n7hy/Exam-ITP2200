@@ -7,7 +7,7 @@ public class Person {
     Float weight;
 
 
-
+    /*Here is a pre-made Person constructor.*/
     public Person() {
         favoriteFood = new Food("Salmon", 190, false, FoodType.Protein);
         allergies = new Food[]{
@@ -20,6 +20,8 @@ public class Person {
         diet = new FlexitarianDiet();
     }
 
+    /*Here is a constructor that gets its values when made as a new abject, its missing a diet field.
+    The reason is because of 2.A, 2.B, 4.A. Where the person is compared to a diet */
 
     public Person(Food favoriteFood, Food[] allergies, Float weight ){
         this.favoriteFood = favoriteFood;

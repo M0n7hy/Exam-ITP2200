@@ -6,7 +6,8 @@ import java.util.Random;
 
 public class DietManager {
 
-    /*This method is checking if the person is allergic to 50% or more of the food, and running the favoriteFood method to make sure this person i compatible*/
+    /*This method is checking if the person is allergic to 50% or more of the food, and running the favoriteFood method to make sure this person i compatible.
+    Criteria 2.B and  4.A*/
     public boolean areCompatible(Person person, Diet diet) {
         int count = 0;
 
@@ -25,7 +26,8 @@ public class DietManager {
         }
         return true;
     }
- /*Making sure The persons favorite food is not and going on a vegan diet. */
+
+    /*Making sure The persons favorite food is not and going on a vegan diet. Criteria 2.A and 4.A */
     public boolean favoriteFood(Person person, Diet diet) {
         if (person.favoriteFood.isVegan != true) {
             if (diet.isVegan == true) {
@@ -34,7 +36,8 @@ public class DietManager {
         }
         return true;
     }
- /*Something extra that was made, recommending a diet to the person*/
+
+    /*Something extra that was made, recommending a diet to the person*/
     public String recommendedDiet(Person person){
         String res = "";
         if (person.favoriteFood.isVegan && person.weight > 80){
@@ -48,6 +51,7 @@ public class DietManager {
         }
         return res;
     }
+
 
     public HypercaloricDiet randomDiet(Person person, Food[] food){
         HypercaloricDiet tmpRandomDiet = new HypercaloricDiet(80);
