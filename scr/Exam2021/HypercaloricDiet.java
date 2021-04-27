@@ -38,6 +38,7 @@ public class HypercaloricDiet extends Diet {
         isVegan = false;
     }
 
+
     /*Constructor*/
     public HypercaloricDiet(float checkWeight) {
         daysDuration = 388;
@@ -58,6 +59,7 @@ public class HypercaloricDiet extends Diet {
         maxWeight(checkWeight);
     }
 
+
     /*Constructor*/
     public HypercaloricDiet(float checkWeight, boolean isVegan) {
         daysDuration = 388;
@@ -77,6 +79,7 @@ public class HypercaloricDiet extends Diet {
         this.isVegan = isVegan;
         maxWeight(checkWeight);
     }
+
 
     /*Constructor*/
     public HypercaloricDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight) {

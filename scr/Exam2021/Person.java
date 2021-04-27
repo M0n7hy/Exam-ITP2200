@@ -1,6 +1,7 @@
 package Exam2021;
 
 public class Person {
+
     Food favoriteFood;
     Food[] allergies;
     Diet diet;
@@ -19,6 +20,7 @@ public class Person {
         weight = 79f;
         diet = new FlexitarianDiet();
     }
+
 
     /*Here is a constructor that gets its values when made as a new abject, its missing a diet field.
     The reason is because of 2.A, 2.B, 4.A. Where the person is compared to a diet */
@@ -61,6 +63,5 @@ public class Person {
     public void setWeight(Float weight) {
         this.weight = weight;
     }
-
 
 }

@@ -1,7 +1,5 @@
 package Exam2021;
 
-
-import java.util.Arrays;
 import java.util.Random;
 
 public class DietManager {
@@ -37,7 +35,7 @@ public class DietManager {
         return true;
     }
 
-    /*Something extra that was made, recommending a diet to the person*/
+ /*Something extra that was made, recommending a diet to the person*/
     public String recommendedDiet(Person person){
         String res = "";
         if (person.favoriteFood.isVegan && person.weight > 80){
@@ -53,11 +51,12 @@ public class DietManager {
     }
 
 
+    /*This method creates a random Hypercaloric diet with a pre-made person from the Person class and the attributes from the HypercaloricDiet class.*/
     public HypercaloricDiet randomDiet(Person person, Food[] food){
         HypercaloricDiet tmpRandomDiet = new HypercaloricDiet(80);
 
         //i.daysDuration: random number between 1 and 100.
-        Random random = new Random();
+        Random random = new Random();/*This is an object that chooses a random number between a maximum and a minimum*/
         int min1 = 1;
         int max1 = 100;
         int res1 = random.nextInt(max1 - min1) + min1;
@@ -87,13 +86,11 @@ public class DietManager {
                    + "Type: " + tmpRandomDiet.allowedFood[i].type + '\n';
         }
 
-
         //iv.isVegan: false if there is some non-vegan Food, true otherwise.
         Boolean isVegan = Boolean.valueOf("");
         for (int i = 0; i < tmpRandomDiet.allowedFood.length; i++) {
             isVegan = tmpRandomDiet.allowedFood[i].isVegan;
         }
-
 
         //v.maxWeightKg: random number between Person.weight and Person.weight + 20.
         float min3 = person.getWeight();
@@ -106,7 +103,6 @@ public class DietManager {
         int max2 = 4000;
         int res2 = random.nextInt(max2 - min2) + min2;
         tmpRandomDiet.minCaloriesPerDay = res2;
-
 
         /*Given a Person and a list of Food, create a random HypercaloricDiet with the following attributes:*/
 

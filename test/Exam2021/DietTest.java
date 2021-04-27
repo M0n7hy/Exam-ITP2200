@@ -21,7 +21,6 @@ public class DietTest {
         }, false, 400, new Food("Pig", 200, false, FoodType.Protein));
 
          assertTrue(F1.isVeganIsNotVegan() == true); /*If assertTrue(!F1.isVeganIsNotVegan()) the test will not pass, cause then we expect a return of false*/
-
     }
 
     /*Requirement 1.A Fail (Throw a exception), Unit testing*/
