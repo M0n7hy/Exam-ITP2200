@@ -14,6 +14,7 @@ public class VeganDiet extends Diet {
             }
     }
 
+
     /*Constructor*/
     public VeganDiet(){
             daysDuration = 200;
@@ -32,6 +33,7 @@ public class VeganDiet extends Diet {
             };
             isVegan = true;
     }
+
 
     /*Constructor*/
     public VeganDiet(float checkWeight){
@@ -53,6 +55,7 @@ public class VeganDiet extends Diet {
         minWeightKg(checkWeight);
     }
 
+
     /*Constructor*/
     public VeganDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight){
         this.daysDuration = daysD;
@@ -61,6 +64,5 @@ public class VeganDiet extends Diet {
         this.isVegan = isVegan;
         minWeightKg(checkWeight);
     }
-
 
 }

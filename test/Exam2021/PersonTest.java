@@ -121,7 +121,7 @@ public class PersonTest {
 
         try {
             v1.minWeightKg(40);
-        }catch (IllegalArgumentException ex) {
+        } catch (IllegalArgumentException ex) {
             assertEquals("This person is too underweight to go on this diet", ex.getMessage());
             System.out.println("Requirement 2.c(fail): " + ex.getMessage() + '\n');
         }

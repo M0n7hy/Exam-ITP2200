@@ -2,7 +2,6 @@ package Exam2021;
 
 public class LowcarbDiet extends Diet {
 
-
     float minWeightKg;
 
     /*Checks the persons weight, returns a true or exception. Criteria 2.C and 4.A*/
@@ -14,6 +13,7 @@ public class LowcarbDiet extends Diet {
             throw new IllegalArgumentException("This person is too underweight to go on this diet.");
         }
     }
+
 
     /*Constructor*/
     public LowcarbDiet() {
@@ -43,7 +43,5 @@ public class LowcarbDiet extends Diet {
         this.isVegan = isVegan;
         minWeight(checkWeight);
     }
-
-
 
 }

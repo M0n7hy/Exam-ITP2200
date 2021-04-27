@@ -16,8 +16,8 @@ public class FlexitarianDiet extends Diet {
             }else{
                 throw new IllegalArgumentException("The preferred meat must be non-vegan FlexitarianDiet.");
             }
-
         }
+
 
     /*Constructor*/
     public FlexitarianDiet() {

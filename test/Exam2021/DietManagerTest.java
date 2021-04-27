@@ -17,16 +17,26 @@ public class DietManagerTest {
         HypercaloricDiet h1 = new HypercaloricDiet(80);
         DietManager dietManager = new DietManager();
 
-         assertTrue(dietManager.areCompatible(person, h1));
+        assertTrue(dietManager.areCompatible(person, h1));
     }
 
     /*Requirement 4.A Fail (Throw a exception) because of allergies, Integration Testing*/
     @Test
     public void randomPersonRandomDietTestFail(){
-        Person person = new Person(new Food("Beef", 320, false, FoodType.Protein), new Food[]{
-                new Food("Peanuts", 90, true, FoodType.Fat), new Food("Milk", 90, false, FoodType.Fat), new Food("Salmon", 440, false, FoodType.Protein),new Food("Pickles", 50, true, FoodType.Carb)}, 80.0f);
-        HypercaloricDiet h1 = new HypercaloricDiet(200, "Gain weight",new Food[]{
-                new Food("Peanuts", 90, true, FoodType.Fat), new Food("Milk", 90, false, FoodType.Fat), new Food("Salmon", 440, false, FoodType.Protein),new Food("Pickles", 50, true, FoodType.Carb)}, false, 80);
+        Person person = new Person(new Food("Beef", 320, false, FoodType.Protein),
+                new Food[]{
+                new Food("Peanuts", 90, true, FoodType.Fat),
+                new Food("Milk", 90, false, FoodType.Fat),
+                new Food("Salmon", 440, false, FoodType.Protein),
+                new Food("Pickles", 50, true, FoodType.Carb)
+                }, 80.0f);
+        HypercaloricDiet h1 = new HypercaloricDiet(200, "Gain weight",
+                new Food[]{
+                new Food("Peanuts", 90, true, FoodType.Fat),
+                new Food("Milk", 90, false, FoodType.Fat),
+                new Food("Salmon", 440, false, FoodType.Protein),
+                new Food("Pickles", 50, true, FoodType.Carb)
+                }, false, 80);
         DietManager dietManager = new DietManager();
 
         try {
@@ -43,8 +53,12 @@ public class DietManagerTest {
     /*Requirement 4.A Fail (Throw a exception) because of favorite food is non-vegan and diet is vegan , Integration Testing*/
     @Test
     public void randomPersonRandomDietTestFailTwo(){
-        Person person = new Person(new Food("Beef", 320, false, FoodType.Protein), new Food[]{
-                new Food("Peanuts", 90, true, FoodType.Fat), new Food("Milk", 90, false, FoodType.Fat), new Food("Salmon", 440, false, FoodType.Protein)}, 80.0f);
+        Person person = new Person(new Food("Beef", 320, false, FoodType.Protein),
+                new Food[]{
+                new Food("Peanuts", 90, true, FoodType.Fat),
+                new Food("Milk", 90, false, FoodType.Fat),
+                new Food("Salmon", 440, false, FoodType.Protein)
+                }, 80.0f);
         VeganDiet v1 = new VeganDiet(80);
         DietManager dietManager = new DietManager();
 
@@ -63,9 +77,7 @@ public class DietManagerTest {
     @Test
     public void personAndListOfFoodTest(){
         Person person = new Person();
-        Food[] food = new Food[]{
-                new Food()
-        };
+        Food[] food = new Food[]{ new Food() };
         System.out.println("Requirement 4.B: ");
         DietManager newDiet = new DietManager();
 
