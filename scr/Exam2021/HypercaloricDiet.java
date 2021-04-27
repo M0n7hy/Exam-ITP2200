@@ -7,19 +7,7 @@ public class HypercaloricDiet extends Diet {
     float maxWeighKg;
     float minCaloriesPerDay;
 
-
-    /*Checks the persons weight, returns a true or exception. Criteria 2.D and 4.A*/
-    public boolean maxWeight(float personsWeight){
-        this.maxWeighKg = personsWeight;
-        if (personsWeight < 150){
-            return true;
-        } else {
-            throw new IllegalArgumentException("This person is too overweight to go on this diet");
-        }
-    }
-
-
-    /*Constructor*/
+    /*Constructor that is prefilled, without maxWeight method*/
     public HypercaloricDiet() {
         daysDuration = 388;
         purpose = "max calories(mostly for pro's)";
@@ -38,8 +26,7 @@ public class HypercaloricDiet extends Diet {
         isVegan = false;
     }
 
-
-    /*Constructor*/
+    /*Constructor that is prefilled, with maxWeight method that need input of values */
     public HypercaloricDiet(float checkWeight) {
         daysDuration = 388;
         purpose = "max calories(mostly for pro's)";
@@ -59,8 +46,7 @@ public class HypercaloricDiet extends Diet {
         maxWeight(checkWeight);
     }
 
-
-    /*Constructor*/
+    /*Constructor that is prefilled, with maxWeight method that needs input of values, and input of isVegan values. */
     public HypercaloricDiet(float checkWeight, boolean isVegan) {
         daysDuration = 388;
         purpose = "max calories(mostly for pro's)";
@@ -80,13 +66,21 @@ public class HypercaloricDiet extends Diet {
         maxWeight(checkWeight);
     }
 
-
-    /*Constructor*/
+    /*Constructor that needs input off values, and  runs the maxWeight method*/
     public HypercaloricDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight) {
         this.daysDuration = daysD;
         this.purpose = purpose;
         this.allowedFood = allowedFood;
         this.isVegan = isVegan;
         maxWeight(checkWeight);
+    }
+    /*Checks the persons weight, returns a true or exception. Criteria 2.D and 4.A*/
+    public boolean maxWeight(float personsWeight){
+        this.maxWeighKg = personsWeight;
+        if (personsWeight < 150){
+            return true;
+        } else {
+            throw new IllegalArgumentException("This person is too overweight to go on this diet");
+        }
     }
 }

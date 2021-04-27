@@ -4,7 +4,6 @@ import static Exam2021.Date.dayDiff;
 
 abstract class Diet {
 
-
     int daysDuration;
     String purpose;
     Food[] allowedFood;
@@ -15,7 +14,7 @@ abstract class Diet {
     private Date endDate;
 
 
-    /*This wil write the duration of a diet (returns String).  Criteria 3.A*/
+    /*This will write the duration of a diet (returns String).  Criteria 3.A*/
     public String writeDuration(){
         String Result = getName() + " lasts for " + getEndDate().yearSince(getStartDate())+ " years, " + getEndDate().monthSince(getStartDate())+ " months and "
                 + dayDiff(getStartDate(), getEndDate()) +" days.";
@@ -81,9 +80,6 @@ abstract class Diet {
         writeDuration();
     }
 
-
-
-
     public void dietName(String name) {
         this.name = name;
     }
@@ -114,13 +110,6 @@ abstract class Diet {
     public Food[] getAllowedFood() {
         return allowedFood;
     }
-
-
-
-
-
-
-
 
 
 }
