@@ -77,7 +77,7 @@ public class DietManagerTest {
     @Test
     public void personAndListOfFoodTest(){
         Person person = new Person();
-        Food[] food = new Food[]{ new Food() };
+        Food[] food = new Food[]{};
         System.out.println("Requirement 4.B: ");
         DietManager newDiet = new DietManager();
 

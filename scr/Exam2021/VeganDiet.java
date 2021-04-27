@@ -2,20 +2,9 @@ package Exam2021;
 
 public class VeganDiet extends Diet {
 
-   private Float minWeightKg;
+    Float minWeightKg;
 
-    /*Checks the persons weight, returns a true or exception. Criteria 2.C and 4.A*/
-    public boolean minWeightKg(float personsWeight){
-            this.minWeightKg = personsWeight;
-            if (personsWeight > 50){
-              return true;
-            } else {
-                throw new IllegalArgumentException("This person is too underweight to go on this diet");
-            }
-    }
-
-
-    /*Constructor*/
+    /*Constructor that is prefilled without minWeightKg method*/
     public VeganDiet(){
             daysDuration = 200;
             purpose = "Not Eating meat.";
@@ -34,8 +23,7 @@ public class VeganDiet extends Diet {
             isVegan = true;
     }
 
-
-    /*Constructor*/
+    /*Constructor that is prefilled, but with method minWeightKg that needs input of values. */
     public VeganDiet(float checkWeight){
         daysDuration = 200;
         purpose = "Not Eating meat.";
@@ -55,14 +43,23 @@ public class VeganDiet extends Diet {
         minWeightKg(checkWeight);
     }
 
-
-    /*Constructor*/
+    /*Constructor that needs input of values, and runs method minWeightKg*/
     public VeganDiet(int daysD, String purpose, Food[] allowedFood, boolean isVegan, float checkWeight){
         this.daysDuration = daysD;
         this.purpose = purpose;
         this.allowedFood = allowedFood;
         this.isVegan = isVegan;
         minWeightKg(checkWeight);
+    }
+
+    /*Checks the persons weight, returns a true or exception. Criteria 2.C and 4.A*/
+    public boolean minWeightKg(float personsWeight){
+        this.minWeightKg = personsWeight;
+        if (personsWeight > 50){
+            return true;
+        } else {
+            throw new IllegalArgumentException("This person is too underweight to go on this diet");
+        }
     }
 
 }

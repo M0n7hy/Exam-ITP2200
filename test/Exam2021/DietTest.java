@@ -97,7 +97,7 @@ public class DietTest {
     public void preferMeatInFlexPass(){
         FlexitarianDiet f1 = new FlexitarianDiet();
 
-        assertTrue( f1.giveMeatAndGrams(500, new Food("Ham", 200, false, FoodType.Protein)));
+        assertTrue( f1.giveMeat(500, new Food("Ham", 200, false, FoodType.Protein)));
     }
 
     /*Requirement 1.D Fail (Throw a exception), Unit testing*/
@@ -106,7 +106,7 @@ public class DietTest {
         FlexitarianDiet f1 = new FlexitarianDiet();
 
         try {
-        f1.giveMeatAndGrams(500, new Food("Tofu", 200, true, FoodType.Protein));
+        f1.giveMeat(500, new Food("Tofu", 200, true, FoodType.Protein));
         } catch (IllegalArgumentException ex) {
             assertEquals("The preferred meat must be non-vegan FlexitarianDiet.", ex.getMessage());
             System.out.println("Requirement 1.d(fail): " + ex.getMessage() + '\n');

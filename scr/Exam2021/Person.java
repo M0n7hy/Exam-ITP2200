@@ -21,7 +21,6 @@ public class Person {
         diet = new FlexitarianDiet();
     }
 
-
     /*Here is a constructor that gets its values when made as a new abject, its missing a diet field.
     The reason is because of 2.A, 2.B, 4.A. Where the person is compared to a diet */
 
@@ -30,7 +29,6 @@ public class Person {
         this.allergies = allergies;
         this.weight = weight;
     }
-
 
     public Food getFavoriteFood() {
         return favoriteFood;

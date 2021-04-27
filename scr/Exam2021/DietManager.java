@@ -1,5 +1,7 @@
 package Exam2021;
 
+
+import java.util.Arrays;
 import java.util.Random;
 
 public class DietManager {
@@ -35,7 +37,7 @@ public class DietManager {
         return true;
     }
 
- /*Something extra that was made, recommending a diet to the person*/
+    /*Something extra that was made, recommending a diet to the person*/
     public String recommendedDiet(Person person){
         String res = "";
         if (person.favoriteFood.isVegan && person.weight > 80){
@@ -50,13 +52,12 @@ public class DietManager {
         return res;
     }
 
-
-    /*This method creates a random Hypercaloric diet with a pre-made person from the Person class and the attributes from the HypercaloricDiet class.*/
+    /*This method creates a random Hypercaloric diet with a pre-made person from the Person class and the attributes from the HypercaloricDiet class. Criteria 4.B*/
     public HypercaloricDiet randomDiet(Person person, Food[] food){
         HypercaloricDiet tmpRandomDiet = new HypercaloricDiet(80);
 
         //i.daysDuration: random number between 1 and 100.
-        Random random = new Random();/*This is an object that chooses a random number between a maximum and a minimum*/
+        Random random = new Random();
         int min1 = 1;
         int max1 = 100;
         int res1 = random.nextInt(max1 - min1) + min1;
@@ -105,7 +106,6 @@ public class DietManager {
         tmpRandomDiet.minCaloriesPerDay = res2;
 
         /*Given a Person and a list of Food, create a random HypercaloricDiet with the following attributes:*/
-
         System.out.println("Diets duration: " + res1 + " days" + '\n');
         System.out.println("Diets purpose: " + tmpRandomDiet.purpose + '\n');
         System.out.println("Food list: \n" + foods);
